@@ -9,16 +9,23 @@ namespace MrcheTrekking
 {
     public partial class App : Application
     {
-
         public App()
         {
             // The root page of your application
             RegisterViews();
-            MainPage = new NavigationPage((ContentPage)ViewFactory.CreatePage<percorsiViewModel, Home>());
+            if (MrcheTrekking.Utility.Settings.User.Equals("")) //verifico se l'utente è già loggato
+            {
+                //MainPage = new NavigationPage((ContentPage)ViewFactory.CreatePage<percorsiViewModel, Main>());
+                MainPage = new NavigationPage(new Main());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new Home());
+            }
         }
         private void RegisterViews()
         {
-            ViewFactory.Register<Home, percorsiViewModel>();
+            ViewFactory.Register<Main, percorsiViewModel>();
             //ViewFactory.Register<Home, ContactDetailsViewModel>();
         }
 

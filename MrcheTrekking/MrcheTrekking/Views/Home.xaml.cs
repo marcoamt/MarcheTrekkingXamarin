@@ -15,11 +15,19 @@ namespace MrcheTrekking.Views
 		public Home ()
 		{
 			InitializeComponent ();
+            User.Text = MrcheTrekking.Utility.Settings.User;
 		}
 
-        protected async void Navigate(object sender, EventArgs args)
+        protected async void Percorsi(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new Percorsi());
+        }
+
+        protected async void Logout(object sender, EventArgs args)
+        {
+            MrcheTrekking.Utility.Settings.User = "";
+            Navigation.InsertPageBefore(new Main(), this);
+            await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
         }
 
     }
