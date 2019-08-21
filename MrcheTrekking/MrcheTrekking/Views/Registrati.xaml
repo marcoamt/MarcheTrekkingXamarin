@@ -9,16 +9,11 @@
             <Entry x:Name="cognome" Placeholder="Cognome"/>
             <Entry x:Name="email" Placeholder="E-mail"/>
             <Entry x:Name="username" Placeholder="Usename"/>
-            <Entry x:Name="telefono" Placeholder="Telefono"/>
             <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
+            <Entry x:Name="telefono" Placeholder="Telefono"/>
              <DatePicker x:Name="datadinascita"
-<<<<<<< Updated upstream
-                    Format="D" />
-            <Button Text="Registrati"Clicked="Reg" />
-=======
                     Format="d"/>
-            <Button Text="Registrati" />
->>>>>>> Stashed changes
+            <Button Text="Registrati" Clicked="Reg"/>
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>

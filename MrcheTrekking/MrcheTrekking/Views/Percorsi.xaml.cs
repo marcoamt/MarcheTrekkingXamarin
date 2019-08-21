@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using MrcheTrekking.ViewModels;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,59 +14,38 @@ namespace MrcheTrekking.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Percorsi : ContentPage
 	{
+
+        //private List<Percorsi> Items;
 		public Percorsi ()
 		{
 			InitializeComponent ();
 
-            var percorsi = GetPercorsiAsync();
+            /*var cell = new DataTemplate(typeof(ImageCell));
 
-            TableView tableView = new TableView
-            {
-                Intent = TableIntent.Form,
-                Root = new TableRoot
-                {
-                    new TableSection
-                    {
-                        new ImageCell
-                        {
-                            // Some differences with loading images in initial release.
-                            ImageSource =
-                                ImageSource.FromUri(new Uri("http://xamarin.com/images/index/ide-xamarin-studio.png")),
-                            Text = "This is an ImageCell",
-                            Detail = "This is some detail text",
-                        }
-                    }
-                }
-            };
+            cell.SetBinding(TextCell.TextProperty, "Name");
+            cell.SetBinding(TextCell.DetailProperty, "Descrizione");
+            cell.SetBinding(ImageCell.ImageSourceProperty, "Immagine");
+
+            listPercorsi.ItemTemplate = cell;
+
+            ;*/
+
+            //this.BindingContext = new percorsiViewModel();
+            ListView lv = new ListView();
+            DataTemplate dt = new DataTemplate(typeof(TextCell));
+            dt.SetBinding(TextCell.TextProperty, new Binding("Nome"));
+            dt.SetBinding(TextCell.DetailProperty, new Binding("Descrizione"));
+            lv.ItemTemplate = dt;
 
             this.Content = new StackLayout
             {
                 Children =
                 {
-                    tableView
+                    lv
                 }
             };
         }
 
-        public async Task<List<Percorsi>> GetPercorsiAsync()
-        {
-            var uri = "http://marchetrekking.altervista.org/percorsi.php";
-
-           
-
-            //inoltro richiesta al server
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
-            {
-                var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-                var Items = JsonConvert.DeserializeObject<List<Percorsi>>(risp);
-                return Items;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        
 	}
 }

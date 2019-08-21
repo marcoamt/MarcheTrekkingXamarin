@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace MrcheTrekking.Views
             string u = username.Text;
             string t = telefono.Text;
             string p = password.Text;
-            string c = datadinascita.Text;
+            string d = datadinascita.Date.Year.ToString() + "/" + datadinascita.Date.Month.ToString() + "/" + datadinascita.Date.Day.ToString();
 
             var uri = "http://marchetrekking.altervista.org/aggiungi_utente.php";
 
@@ -39,6 +40,7 @@ namespace MrcheTrekking.Views
                 new KeyValuePair<string,string> ("n", n),
                 new KeyValuePair<string,string> ("c", c),
                 new KeyValuePair<string,string> ("telef", t),
+                new KeyValuePair<string,string> ("dnascita", d),
             });
 
             //inoltro richiesta al server

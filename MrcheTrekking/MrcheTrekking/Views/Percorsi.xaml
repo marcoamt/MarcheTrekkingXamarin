@@ -5,6 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Percorsi" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
