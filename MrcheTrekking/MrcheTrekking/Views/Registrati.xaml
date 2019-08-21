@@ -12,9 +12,8 @@
             <Entry x:Name="telefono" Placeholder="Telefono"/>
             <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
              <DatePicker x:Name="datadinascita"
-                    Format="D"
-                    DateSelected="OnDateSelected" />
-            <Button Text="Registrati" Clicked="Log"/>
+                    Format="D" />
+            <Button Text="Registrati"Clicked="Reg" />
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>
