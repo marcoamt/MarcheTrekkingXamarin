@@ -5,6 +5,16 @@
   <ContentPage.Content>
       <StackLayout>
           <Label Text="Registrati" />
+          <Entry x:Name="nome" Placeholder="Nome"/>
+            <Entry x:Name="cognome" Placeholder="Cognome"/>
+            <Entry x:Name="email" Placeholder="E-mail"/>
+            <Entry x:Name="username" Placeholder="Usename"/>
+            <Entry x:Name="telefono" Placeholder="Telefono"/>
+            <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
+             <DatePicker x:Name="datadinascita"
+                    Format="D"
+                    DateSelected="OnDateSelected" />
+            <Button Text="Registrati" Clicked="Log"/>
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>
