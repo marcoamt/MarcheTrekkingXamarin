@@ -1,11 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MrcheTrekking.Views.Percorsi">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Percorsi" />
-            
-        </StackLayout>
+        <ListView  x:Name="lstView" RowHeight="60" ItemTapped="onItemTapped">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+							<StackLayout Orientation="Vertical">
+								<Label Text = "{Binding Nome}" FontSize="18" />
+								<Label Text = "{Binding Descrizione}" />
+							</StackLayout>
+							<!--<Image Source="{Binding Immagine}" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 "/>-->
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
     </ContentPage.Content>
 </ContentPage>
