@@ -8,7 +8,7 @@
     <StackLayout>
         <Label Text="Benvenuto!" />
         <Button Text="Percorsi" Clicked="Percorsi"/>
-        <Button Text="Inserisci Percorso" />
+        <Button Text="Inserisci Percorso" Clicked="AggiungiPercorso"/>
         <Button Text="Recensioni" />
         <Label x:Name="User" />
     </StackLayout>

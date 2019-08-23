@@ -30,5 +30,9 @@ namespace MrcheTrekking.Views
             await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
         }
 
+        protected async void AggiungiPercorso(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new AggiungiPercorso());
+        }
     }
 }
