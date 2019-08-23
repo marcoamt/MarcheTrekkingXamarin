@@ -25,7 +25,7 @@ namespace MrcheTrekking
         }
         private void RegisterViews()
         {
-            ViewFactory.Register<Percorsi, percorsiViewModel>();
+            //ViewFactory.Register<Percorsi, percorsiViewModel>();
             //ViewFactory.Register<Home, ContactDetailsViewModel>();
         }
 

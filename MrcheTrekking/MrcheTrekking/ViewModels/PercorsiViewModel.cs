@@ -9,7 +9,7 @@ namespace MrcheTrekking.ViewModels
 {
     public class percorsiViewModel : ViewModel
     {
-        ObservableCollection<Percorsi> PercorsiList { get; set; }
+        /*ObservableCollection<Percorsi> PercorsiList { get; set; }
 
         public percorsiViewModel()
         {
@@ -38,6 +38,6 @@ namespace MrcheTrekking.ViewModels
 
                 }
             };
-        }
+        }*/
     }
 }

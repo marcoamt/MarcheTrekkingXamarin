@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MrcheTrekking.Models
 {
-    class Percorsi
+    class PercorsiModel
     {
         public string Nome { get; set; }
         public string Descrizione { get; set; }
