@@ -1,51 +1,63 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using MrcheTrekking.ViewModels;
-using Newtonsoft.Json;
 using Xamarin.Forms;
+using MrcheTrekking.Models;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MrcheTrekking.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Percorsi : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Percorsi : ContentPage
+    {
 
-        //private List<Percorsi> Items;
-		public Percorsi ()
-		{
-			InitializeComponent ();
+        ObservableCollection<PercorsiModel> PercorsiList { get; set; }
 
-            /*var cell = new DataTemplate(typeof(ImageCell));
+        //private List<PercorsiModel> Items;
+        public Percorsi()
+        {
+            InitializeComponent();
 
-            cell.SetBinding(TextCell.TextProperty, "Name");
-            cell.SetBinding(TextCell.DetailProperty, "Descrizione");
-            cell.SetBinding(ImageCell.ImageSourceProperty, "Immagine");
-
-            listPercorsi.ItemTemplate = cell;
-
-            ;*/
-
-            //this.BindingContext = new percorsiViewModel();
-            ListView lv = new ListView();
-            DataTemplate dt = new DataTemplate(typeof(TextCell));
-            dt.SetBinding(TextCell.TextProperty, new Binding("Nome"));
-            dt.SetBinding(TextCell.DetailProperty, new Binding("Descrizione"));
-            lv.ItemTemplate = dt;
-
-            this.Content = new StackLayout
-            {
-                Children =
-                {
-                    lv
-                }
-            };
+            GetPercorsi();
+            
         }
 
-        
-	}
+        public async Task GetPercorsi()
+        {
+            try
+            {
+                var uri = new Uri("http://marchetrekking.altervista.org/percorsiJSON.php");
+                HttpClient myClient = new HttpClient();
+
+                var response = await myClient.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var Items = JsonConvert.DeserializeObject<List<PercorsiModel>>(content);
+                    int name = Items.Count;
+                    lstView.ItemsSource = Items;
+                }
+                else
+                {
+                    Application.Current.Properties["response"] = response;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        protected async void onItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Debug.WriteLine("Tapped: " + e.Item);
+            await Navigation.PushAsync(new DettaglioPercorso(e.Item));
+        }
+    }
 }
