@@ -57,6 +57,9 @@ namespace MrcheTrekking.Views
         protected async void onItemTapped(object sender, ItemTappedEventArgs e)
         {
             Debug.WriteLine("Tapped: " + e.Item);
+            //disabilito l'evidenziatore dall'elemento selezionato
+            if (sender is ListView lv) lv.SelectedItem = null;
+            //passo alla view del dettaglio del percorso selezionato
             await Navigation.PushAsync(new DettaglioPercorso(e.Item));
         }
     }

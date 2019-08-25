@@ -7,7 +7,7 @@ namespace MrcheTrekking.Views
 {
     public partial class ContinuaAggPercorso : ContentPage
     {
-        public ContinuaAggPercorso()
+        public ContinuaAggPercorso(List<string> latitudine, List<string> longitudine)
         {
             InitializeComponent();
         }

@@ -27,7 +27,7 @@ namespace MrcheTrekking.Views
             i++;
         }
 
-        protected void Continua(object sender, EventArgs args)
+        protected async void Continua(object sender, EventArgs args)
         {
             int children = agg.Children.Count;
             latitudine = new List<string>();
@@ -42,6 +42,8 @@ namespace MrcheTrekking.Views
             }
 
             //passare alla prossima view per aggiungere i dettagli del percorso creato
+
+            await Navigation.PushAsync(new ContinuaAggPercorso(latitudine, longitudine));
         }
     }
 }

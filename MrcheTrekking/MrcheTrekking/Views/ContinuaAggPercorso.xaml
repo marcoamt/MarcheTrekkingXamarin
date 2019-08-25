@@ -7,7 +7,7 @@
             <Entry x:Name="descrizione" Placeholder="Descrizione"/>
             <Entry x:Name="lunghezza" Placeholder="Lunghezza"/>
             <Entry x:Name="livello" Placeholder="Livello"/>
-            <Entry x:Name="durata" Placeholder="Durata" />"
+            <Entry x:Name="durata" Placeholder="Durata" />
             <Button Text="Aggiungi Percosrso" Clicked="aggiungi"/>
       </StackLayout>
     </ContentPage.Content>
