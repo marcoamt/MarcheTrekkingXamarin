@@ -34,5 +34,10 @@ namespace MrcheTrekking.Views
         {
             await Navigation.PushAsync(new AggiungiPercorso());
         }
+
+        protected async void Recensioni(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Recensioni());
+        }
     }
 }

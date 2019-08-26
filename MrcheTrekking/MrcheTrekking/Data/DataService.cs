@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using MrcheTrekking.Models;
 using Newtonsoft.Json;
@@ -10,21 +10,35 @@ namespace MrcheTrekking.Data
 {
     public static class DataService
     {
-        /*public static async Task<List<Percorsi>> GetAll()
+
+        /*public static Task<List<PercorsiModel>> GetAll()
         {
-            var uri = "http://marchetrekking.altervista.org/percorsi.php";
+            return GetPercorsi();
+        }
 
-            //inoltro richiesta al server
-            HttpClient client = new HttpClient();
-            var response = await client.GetAsync(uri);
+        public static async Task<List<PercorsiModel>> GetPercorsi()
+        {
+            List<PercorsiModel> Items = new List<PercorsiModel>();
+            try
+            {
+                var uri = new Uri("http://marchetrekking.altervista.org/percorsiJSON.php");
+                HttpClient myClient = new HttpClient();
 
-            var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-            List<Percorsi> Items = JsonConvert.DeserializeObject<List<Percorsi>>(risp);
+                var response = await myClient.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Items = JsonConvert.DeserializeObject<List<PercorsiModel>>(content);
+                    int name = Items.Count;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
 
             return Items;
-
         }*/
-            
-        
+
     }
 }

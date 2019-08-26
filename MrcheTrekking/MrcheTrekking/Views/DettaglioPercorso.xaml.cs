@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using MrcheTrekking.Models;
+using MrcheTrekking.ViewModels;
 using Xamarin.Forms;
 
 namespace MrcheTrekking.Views
 {
     public partial class DettaglioPercorso : ContentPage
     {
-        public DettaglioPercorso(Object a)
+        public DettaglioPercorso()
         {
             InitializeComponent();
 
-            PercorsiModel p = (MrcheTrekking.Models.PercorsiModel)a;
+            /*PercorsiModel p = (MrcheTrekking.Models.PercorsiModel)a;
 
             string nome = p.Nome;
             string desc = p.Descrizione;
@@ -25,7 +26,7 @@ namespace MrcheTrekking.Views
                                 "\nDescrizione: " + desc +
                                 "\nLunghezza: " + lunghezza +
                                 "\nLivello: " + livello +
-                                "\nDurata: " + durata ;
+                                "\nDurata: " + durata ;*/
 
 
         }

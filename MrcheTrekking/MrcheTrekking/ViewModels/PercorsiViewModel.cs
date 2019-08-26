@@ -7,37 +7,28 @@ using XLabs.Forms.Mvvm;
 
 namespace MrcheTrekking.ViewModels
 {
-    public class percorsiViewModel : ViewModel
+    public class PercorsiViewModel : ViewModel
     {
-        /*ObservableCollection<Percorsi> PercorsiList { get; set; }
+        private readonly PercorsiModel _percorso;
 
-        public percorsiViewModel()
+        public string Nome
         {
-            PercorsiList = new ObservableCollection<Percorsi>
-            {
-                new Percorsi
-                {
-                    Nome = "Baboon",
-                    Descrizione = "Africa & Asia",
-                    Livello = 2,
-                    Lunghezza = 200,
-                    Durata = "3",
-                    Immagine = "img",
-                    Mappa = "",
+            get { return _percorso.Nome; }
+        }
 
-                },
-                new Percorsi
-                {
-                    Nome = "cvjb",
-                    Descrizione = "fsdg",
-                    Livello = 2,
-                    Lunghezza = 200,
-                    Durata = "3",
-                    Immagine = "img",
-                    Mappa = "",
+        public string Descrizione
+        {
+            get { return _percorso.Descrizione; }
+        }
 
-                }
-            };
-        }*/
+        public string Caratteristiche
+        {
+            get { return string.Format("Livello: {0} \n Lunghezza: {1} \n Durata: {2}", _percorso.Livello, _percorso.Lunghezza, _percorso.Durata); }
+        }
+
+        public PercorsiViewModel(PercorsiModel percorso)
+        {
+            _percorso = percorso;
+        }
     }
 }

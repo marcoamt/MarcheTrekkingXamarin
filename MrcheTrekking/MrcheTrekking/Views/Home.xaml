@@ -9,7 +9,7 @@
         <Label Text="Benvenuto!" />
         <Button Text="Percorsi" Clicked="Percorsi"/>
         <Button Text="Inserisci Percorso" Clicked="AggiungiPercorso"/>
-        <Button Text="Recensioni" />
+        <Button Text="Recensioni" Clicked="Recensioni"/>
         <Label x:Name="User" />
     </StackLayout>
 </ContentPage>

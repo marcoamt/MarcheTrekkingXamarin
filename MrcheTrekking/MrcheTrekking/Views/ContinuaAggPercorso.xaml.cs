@@ -7,9 +7,12 @@ namespace MrcheTrekking.Views
 {
     public partial class ContinuaAggPercorso : ContentPage
     {
+        private string mappa;
         public ContinuaAggPercorso(List<string> latitudine, List<string> longitudine)
         {
             InitializeComponent();
+            for (int i = 0; i < latitudine.Count; i++)
+                mappa = latitudine[i] + ", " + longitudine[i];
         }
 
         //async
@@ -29,22 +32,23 @@ namespace MrcheTrekking.Views
             {
                 new KeyValuePair<string,string> ("nome", n),
                 new KeyValuePair<string,string> ("desc", d),
+                new KeyValuePair<string,string> ("map", mappa),
                 new KeyValuePair<string,string> ("durata", du),
                 new KeyValuePair<string,string> ("livello", l),
                 new KeyValuePair<string,string> ("lunghezza", lu),
+                new KeyValuePair<string,string> ("user", Utility.Settings.User),
             });
 
             //inoltro richiesta al server
-            /*HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient();
             var response = await client.PostAsync(uri, content);
             var risp = await response.Content.ReadAsStringAsync();  //risposta del server
             String s = risp.Trim();
             if (s.Equals("1"))
             {
-                MrcheTrekking.Utility.Settings.User = u;    //uso del pacchetto nuget Xamarin Settings per abilitare una "sessione"
-                Navigation.InsertPageBefore(new Home(), this);
-                await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
-            }*/
+                DisplayAlert("Alert", "Percorso aggiunto", "OK");
+                await Navigation.PushAsync(new Home());
+            }
 
         }
     }

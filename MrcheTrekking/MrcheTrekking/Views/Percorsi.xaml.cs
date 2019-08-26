@@ -9,6 +9,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MrcheTrekking.Views
 {
@@ -16,18 +17,52 @@ namespace MrcheTrekking.Views
     public partial class Percorsi : ContentPage
     {
 
-        ObservableCollection<PercorsiModel> PercorsiList { get; set; }
+        public const string ItemSelectedCommandPropertyName = "ItemSelectedCommand";
+        public static BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(
+            propertyName: "ItemSelectedCommand",
+            returnType: typeof(ICommand),
+            declaringType: typeof(Percorsi),
+            defaultValue: null);
+
+        public ICommand ItemSelectedCommand
+        {
+            get { return (ICommand)GetValue(ItemSelectedCommandProperty); }
+            set { SetValue(ItemSelectedCommandProperty, value); }
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+
+            RemoveBinding(ItemSelectedCommandProperty);
+            SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
+        }
+
+        private void HandleItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+
+            var command = ItemSelectedCommand;
+            if (command != null && command.CanExecute(e.SelectedItem))
+            {
+                command.Execute(e.SelectedItem);
+            }
+        }
 
         //private List<PercorsiModel> Items;
         public Percorsi()
         {
+            BindingContext = new ListPercorsiViewModel();
             InitializeComponent();
 
-            GetPercorsi();
+            //GetPercorsi();
             
         }
 
-        public async Task GetPercorsi()
+        /*public async Task GetPercorsi()
         {
             try
             {
@@ -61,6 +96,6 @@ namespace MrcheTrekking.Views
             if (sender is ListView lv) lv.SelectedItem = null;
             //passo alla view del dettaglio del percorso selezionato
             await Navigation.PushAsync(new DettaglioPercorso(e.Item));
-        }
+        }*/
     }
 }

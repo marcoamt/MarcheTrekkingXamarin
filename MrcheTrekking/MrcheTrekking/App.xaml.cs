@@ -11,6 +11,7 @@ namespace MrcheTrekking
     {
         public App()
         {
+            
             // The root page of your application
             RegisterViews();
             if (MrcheTrekking.Utility.Settings.User.Equals("")) //verifico se l'utente è già loggato
@@ -25,8 +26,9 @@ namespace MrcheTrekking
         }
         private void RegisterViews()
         {
-            //ViewFactory.Register<Percorsi, percorsiViewModel>();
-            //ViewFactory.Register<Home, ContactDetailsViewModel>();
+            ViewFactory.Register<Percorsi, ListPercorsiViewModel>();
+            ViewFactory.Register<DettaglioPercorso, DettaglioPercorsoViewModel>();
+            ViewFactory.Register<Recensioni, ListPercorsiViewModel>();
         }
 
         protected override void OnStart()
