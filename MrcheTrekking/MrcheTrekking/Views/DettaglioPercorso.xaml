@@ -5,8 +5,8 @@
             <Label Text="Dettaglio Percorso"></Label>
             <!--<Image></Image>-->
             <Label x:Name="descrizione" Text="{Binding Item.Descrizione}"/>
-            <Button Text="Mappa"/>
-            <Button Text="Recensione" Clicked="Recensione"/>
+            <Button Text="Mappa" Clicked="GoMappa" />
+            <Button Text="Recensione" Clicked="GoRecensioni"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

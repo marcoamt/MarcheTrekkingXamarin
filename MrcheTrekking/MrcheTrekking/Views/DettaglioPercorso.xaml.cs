@@ -16,6 +16,15 @@ namespace MrcheTrekking.Views
 
             BindingContext = this.dp = dp;
         }
+
+        protected async void GoMappa(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Mappa());
+        }
+        protected async void GoRecensioni(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Mappa());
+        }
     }
      protected async void Recensione(object sender, EventArgs args)
         {
