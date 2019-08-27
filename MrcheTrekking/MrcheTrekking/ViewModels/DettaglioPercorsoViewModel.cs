@@ -1,18 +1,15 @@
-﻿using XLabs.Forms.Mvvm;
+﻿using MrcheTrekking.Models;
+using XLabs.Forms.Mvvm;
 
 namespace MrcheTrekking.ViewModels
 {
     public class DettaglioPercorsoViewModel : ViewModel
     {
-        private PercorsiViewModel _percorso;
-        public PercorsiViewModel Percorso
+        public PercorsiViewModel Item { get; set; }
+
+        public DettaglioPercorsoViewModel(PercorsiViewModel item = null)
         {
-            get { return _percorso; }
-            set
-            {
-                _percorso = value;
-                NotifyPropertyChanged();
-            }
+            Item = item;
         }
     }
 }

@@ -4,7 +4,7 @@
         <StackLayout>
             <Label Text="Dettaglio Percorso"></Label>
             <!--<Image></Image>-->
-            <Label x:Name="descrizione" Text="{Binding Percorso.Descrizione}"/>
+            <Label x:Name="descrizione" Text="{Binding Item.Descrizione}"/>
             <Button Text="Mappa"/>
             <Button Text="Recensione"/>
         </StackLayout>

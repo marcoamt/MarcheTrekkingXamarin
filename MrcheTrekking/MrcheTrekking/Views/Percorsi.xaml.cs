@@ -38,7 +38,7 @@ namespace MrcheTrekking.Views
             SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
         }
 
-        private void HandleItemSelected(object sender, SelectedItemChangedEventArgs e)
+        /*private void HandleItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
             {
@@ -50,6 +50,23 @@ namespace MrcheTrekking.Views
             {
                 command.Execute(e.SelectedItem);
             }
+        }*/
+
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as PercorsiViewModel;
+            if (item == null)
+            {
+                // the item was deselected
+                return;
+            }
+
+            // Navigate to the detail page
+            await Navigation.PushAsync(new DettaglioPercorso(new DettaglioPercorsoViewModel(item)));
+
+            // Manually deselect item
+            //characterList.SelectedItem = null;
         }
 
         //private List<PercorsiModel> Items;

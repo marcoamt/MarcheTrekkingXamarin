@@ -8,27 +8,13 @@ namespace MrcheTrekking.Views
 {
     public partial class DettaglioPercorso : ContentPage
     {
-        public DettaglioPercorso()
+        private DettaglioPercorsoViewModel dp;
+
+        public DettaglioPercorso(DettaglioPercorsoViewModel dp)
         {
             InitializeComponent();
 
-            /*PercorsiModel p = (MrcheTrekking.Models.PercorsiModel)a;
-
-            string nome = p.Nome;
-            string desc = p.Descrizione;
-            double lunghezza = p.Lunghezza;
-            int livello = p.Livello;
-            string durata = p.Durata;
-            string img = p.Immagine;
-            string map = p.Mappa;
-
-            descrizione.Text = "Nome: " + nome +
-                                "\nDescrizione: " + desc +
-                                "\nLunghezza: " + lunghezza +
-                                "\nLivello: " + livello +
-                                "\nDurata: " + durata ;*/
-
-
+            BindingContext = this.dp = dp;
         }
     }
 }

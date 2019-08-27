@@ -14,7 +14,7 @@ namespace MrcheTrekking.ViewModels
     public class ListPercorsiViewModel : ViewModel
     {
         private IList<PercorsiViewModel> _percorsi;
-        private IList<String> _nomi;
+        private IList<string> _nomi;
 
         public IList<PercorsiViewModel> Percorsi
         {
@@ -29,7 +29,7 @@ namespace MrcheTrekking.ViewModels
             }
         }
 
-        public IList<String> Nomi
+        public IList<string> Nomi
         {
             get
             {
@@ -42,7 +42,7 @@ namespace MrcheTrekking.ViewModels
             }
         }
 
-        public ICommand ItemSelectedCommand { get; set; }
+        /*public ICommand ItemSelectedCommand { get; set; }
 
         private void OnItemSelected(PercorsiViewModel percorsoVM)
         {
@@ -51,13 +51,13 @@ namespace MrcheTrekking.ViewModels
                 viewmodel.Percorso = percorsoVM;
             });
 
-        }
+        }*/
 
         public ListPercorsiViewModel()
         {
-            ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
+            //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Percorsi = new ObservableCollection<PercorsiViewModel>();
-             Nomi = new ObservableCollection<String>();
+            Nomi = new ObservableCollection<string>();
             GetPercorsi(Percorsi, Nomi);
         }
 
