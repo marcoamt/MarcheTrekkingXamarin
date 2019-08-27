@@ -17,4 +17,8 @@ namespace MrcheTrekking.Views
             BindingContext = this.dp = dp;
         }
     }
+     protected async void Recensione(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new RecensionePercorso());
+        }
 }

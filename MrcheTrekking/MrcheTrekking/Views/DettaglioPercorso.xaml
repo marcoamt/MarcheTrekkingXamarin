@@ -6,7 +6,7 @@
             <!--<Image></Image>-->
             <Label x:Name="descrizione" Text="{Binding Item.Descrizione}"/>
             <Button Text="Mappa"/>
-            <Button Text="Recensione"/>
+            <Button Text="Recensione" Clicked="Recensione"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
