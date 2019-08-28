@@ -20,5 +20,9 @@
 
   <ItemGroup>
     <Compile Remove="Utility\CustomMapRenderer.cs" />
+    <Compile Remove="Views\RecensionePercorso.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\RecensionePercorso.xaml" />
   </ItemGroup>
 </Project>
