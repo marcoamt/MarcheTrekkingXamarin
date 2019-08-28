@@ -22,12 +22,26 @@ namespace MrcheTrekking.Views
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
             Content = stack;*/
-            var customMap = new CustomMap
+            InitializeComponent();
+            /*var customMap = new CustomMap
             {
                 MapType = MapType.Street,
+            };*/
+            var customMap = new Map();
+            var stack = new StackLayout { Spacing = 0 };
+            stack.Children.Add(customMap);
+            Content = stack;
+            var position = new Position(37, -122); // Latitude, Longitude
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = position,
+                Label = "custom pin",
+                Address = "custom detail info"
             };
+            customMap.Pins.Add(pin);
 
-            customMap.RouteCoordinates.Add(new Position(37.797534, -122.401827));
+            /*customMap.RouteCoordinates.Add(new Position(37.797534, -122.401827));
             customMap.RouteCoordinates.Add(new Position(37.797510, -122.402060));
             customMap.RouteCoordinates.Add(new Position(37.790269, -122.400589));
             customMap.RouteCoordinates.Add(new Position(37.790265, -122.400474));
@@ -44,10 +58,9 @@ namespace MrcheTrekking.Views
             customMap.RouteCoordinates.Add(new Position(37.777113, -122.394983));
             customMap.RouteCoordinates.Add(new Position(37.776831, -122.394627));
 
-            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(37.79752, -122.40183), Distance.FromMiles(1.0)));
-            Content = customMap;
+            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(37.79752, -122.40183), Distance.FromMiles(1.0)));*/
+            //Content = customMap;
 
-            InitializeComponent();
         }
     }
 }

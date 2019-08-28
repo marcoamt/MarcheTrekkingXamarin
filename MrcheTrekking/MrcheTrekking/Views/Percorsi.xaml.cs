@@ -66,7 +66,7 @@ namespace MrcheTrekking.Views
             await Navigation.PushAsync(new DettaglioPercorso(new DettaglioPercorsoViewModel(item)));
 
             // Manually deselect item
-            //characterList.SelectedItem = null;
+            lstView.SelectedItem = null;
         }
 
         public Percorsi()
@@ -74,7 +74,6 @@ namespace MrcheTrekking.Views
             BindingContext = new ListPercorsiViewModel();
            
             InitializeComponent();
-            
         }
     }
 }

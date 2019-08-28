@@ -33,12 +33,18 @@ namespace MrcheTrekking.Views
             HttpClient client = new HttpClient();
             var response = await client.PostAsync(uri, content);
             var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-            String s = risp.Trim();
+            string s = risp.Trim();
             if(s.Equals("1"))
             {
                 MrcheTrekking.Utility.Settings.User = u;    //uso del pacchetto nuget Xamarin Settings per abilitare una "sessione"
+                // Remove della pagina precedente a Login
+                this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                 Navigation.InsertPageBefore(new Home(), this);
-                await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
+                await Navigation.PopAsync();    //rimuove la pagina più recente dallo stack
+            }
+            else
+            {
+                DisplayAlert("Log in", "Credenziali sbagliate", "OK");
             }
         }
     }
