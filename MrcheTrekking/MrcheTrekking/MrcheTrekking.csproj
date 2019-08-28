@@ -23,6 +23,6 @@
     <Compile Remove="Views\RecensionePercorso.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Remove="Views\RecensionePercorso.xaml" />
+    <Folder Include="Images\" />
   </ItemGroup>
 </Project>

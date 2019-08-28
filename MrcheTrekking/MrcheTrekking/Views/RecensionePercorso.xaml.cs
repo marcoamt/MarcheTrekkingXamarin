@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MrcheTrekking.ViewModels;
@@ -14,26 +14,19 @@ using System.Windows.Input;
 namespace MrcheTrekking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Percorsi : ContentPage
+    public partial class RecensionePercorso : ContentPage
     {
-        
         public const string ItemSelectedCommandPropertyName = "ItemSelectedCommand";
         public static BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(
             propertyName: "ItemSelectedCommand",
             returnType: typeof(ICommand),
-            declaringType: typeof(Percorsi),
+            declaringType: typeof(Recensioni),
             defaultValue: null);
-
-        public ICommand ItemSelectedCommand
-        {
-            get { return (ICommand)GetValue(ItemSelectedCommandProperty); }
-            set { SetValue(ItemSelectedCommandProperty, value); }
-        }
 
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
-            
+
             RemoveBinding(ItemSelectedCommandProperty);
             SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
         }
@@ -53,28 +46,24 @@ namespace MrcheTrekking.Views
         }*/
 
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        //private List<PercorsiModel> Items;
+        public RecensionePercorso(string p)
         {
-            var item = args.SelectedItem as PercorsiViewModel;
-            if (item == null)
-            {
-                // the item was deselected
-                return;
-            }
-            
-            // Navigate to the detail page
-            await Navigation.PushAsync(new DettaglioPercorso(new DettaglioPercorsoViewModel(item)));
-
-            // Manually deselect item
-            //characterList.SelectedItem = null;
-        }
-
-        public Percorsi()
-        {
-            BindingContext = new ListPercorsiViewModel();
-           
+            BindingContext = new ListRecensioneViewModel(p);
             InitializeComponent();
-            
+
+            //GetPercorsi();
+
         }
+        /*
+
+        protected async void onItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Debug.WriteLine("Tapped: " + e.Item);
+            //disabilito l'evidenziatore dall'elemento selezionato
+            if (sender is ListView lv) lv.SelectedItem = null;
+            //passo alla view del dettaglio del percorso selezionato
+            await Navigation.PushAsync(new DettaglioPercorso(e.Item));
+        }*/
     }
 }

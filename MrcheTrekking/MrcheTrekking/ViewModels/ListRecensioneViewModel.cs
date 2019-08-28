@@ -11,7 +11,7 @@ using System;
 
 namespace MrcheTrekking.ViewModels
 {
-    public class ListRecenzioneViewModel : ViewModel
+    public class ListRecensioneViewModel : ViewModel
     {
         private IList<RecensioneViewModel> _recensione;
 
@@ -27,24 +27,27 @@ namespace MrcheTrekking.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        public ListRecensioneViewModel()
+        public ListRecensioneViewModel(string nomePercorso)
         {
             //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Recensioni = new ObservableCollection<RecensioneViewModel>();
-            GetRecensione(Recensione);
+            GetRecensione(Recensioni, nomePercorso);
         }
 
 
-        public static async Task GetRecensione(IList<RecensioneViewModel> recensione)
+        public static async Task GetRecensione(IList<RecensioneViewModel> recensione, string percorso)
         {
-            var uri = new Uri("http://marchetrekking.altervista.org/recensioni.php");
-            HttpClient myClient = new HttpClient();
-
-            var response = await myClient.GetAsync(uri);
+            var uri = new Uri("http://marchetrekking.altervista.org/recensioniJSON.php");
+            var content = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string,string> ("percorso", percorso)
+            });
+            HttpClient client = new HttpClient();
+            var response = await client.PostAsync(uri, content);
+            var risp = await response.Content.ReadAsStringAsync();  //risposta del server
             if (response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                var Items = JsonConvert.DeserializeObject<List<RecensioneModel>>(content);
+                var Items = JsonConvert.DeserializeObject<List<RecensioneModel>>(risp);
                 for (int i = 0; i < Items.Count; i++)
                 {
                     recensione.Add(new RecensioneViewModel(Items[i]));

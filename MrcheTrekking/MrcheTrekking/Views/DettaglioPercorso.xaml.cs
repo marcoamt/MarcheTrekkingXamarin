@@ -23,11 +23,7 @@ namespace MrcheTrekking.Views
         }
         protected async void GoRecensioni(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Mappa());
+            await Navigation.PushAsync(new RecensionePercorso(dp.Item.Nome));
         }
     }
-     protected async void Recensione(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new RecensionePercorso());
-        }
 }

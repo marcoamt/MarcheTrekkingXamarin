@@ -3,8 +3,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Dettaglio Percorso"></Label>
-            <!--<Image></Image>-->
-            <Label x:Name="descrizione" Text="{Binding Item.Descrizione}"/>
+            <Image Source="{Binding Item.Immagine}"></Image>
+            <Label Text="{Binding Item.Descrizione}"/>
+            <Label Text="{Binding Item.Caratteristiche}"/>
             <Button Text="Mappa" Clicked="GoMappa" />
             <Button Text="Recensione" Clicked="GoRecensioni"/>
         </StackLayout>
