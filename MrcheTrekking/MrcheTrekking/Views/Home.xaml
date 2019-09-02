@@ -10,12 +10,33 @@
         <Label x:Name="User" />
 
         <Image Source="trekking.jpg" />
-        <StackLayout>
+        <!--<StackLayout>
             <Button Text="Percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="Percorsi"/>
             <Button Text="Inserisci Percorso" WidthRequest="300" HorizontalOptions="Center" Clicked="AggiungiPercorso"/>
             <Button Text="Recensioni" WidthRequest="300" HorizontalOptions="Center" Clicked="Recensioni"/>
             <Button Text="I miei percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="MieiPercorsi"/>
-        </StackLayout>
+        </StackLayout>-->
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="100" ></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--<StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#3094d2"  >
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image   Source="@drawable/logo.jpg" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+                
+            </StackLayout>-->
+            <Button Text="Percorsi" Grid.Row="0" Grid.Column="0"  BackgroundColor="#287cbe" TextColor="White" Clicked="Percorsi"/>
+            <Button Text="Inserisci Percorso"   Grid.Row="0" Grid.Column="1"  BackgroundColor="#287cbe" TextColor="White" Clicked="AggiungiPercorso"  />
+            <Button Text="Recensioni" Grid.Row="1" Grid.Column="0"  BackgroundColor="#5153a9"  TextColor="White" Clicked="Recensioni" />
+            <Button Text="I miei percorsi" Grid.Row="1" Grid.Column="1" BackgroundColor="#a434a6" TextColor="White"  Clicked="MieiPercorsi" />
+
+        </Grid>
 
 
     </StackLayout>
