@@ -10,6 +10,7 @@ namespace MrcheTrekking.ViewModels
     public class PercorsiViewModel : ViewModel
     {
         private readonly PercorsiModel _percorso;
+        private string p;
 
         public string Nome
         {
@@ -34,6 +35,11 @@ namespace MrcheTrekking.ViewModels
         public PercorsiViewModel(PercorsiModel percorso)
         {
             _percorso = percorso;
+        }
+
+        public PercorsiViewModel(string p)
+        {
+            this.p = p;
         }
     }
 }

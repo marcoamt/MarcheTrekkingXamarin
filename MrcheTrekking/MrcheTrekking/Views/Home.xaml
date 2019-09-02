@@ -6,10 +6,17 @@
         <ToolbarItem Text="Logout" Clicked="Logout"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="Benvenuto!" />
-        <Button Text="Percorsi" Clicked="Percorsi"/>
-        <Button Text="Inserisci Percorso" Clicked="AggiungiPercorso"/>
-        <Button Text="Recensioni" Clicked="Recensioni"/>
+        <Label Text="Benvenuto" />
         <Label x:Name="User" />
+
+        <Image Source="trekking.jpg" />
+        <StackLayout>
+            <Button Text="Percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="Percorsi"/>
+            <Button Text="Inserisci Percorso" WidthRequest="300" HorizontalOptions="Center" Clicked="AggiungiPercorso"/>
+            <Button Text="Recensioni" WidthRequest="300" HorizontalOptions="Center" Clicked="Recensioni"/>
+            <Button Text="I miei percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="MieiPercorsi"/>
+        </StackLayout>
+
+
     </StackLayout>
 </ContentPage>
