@@ -25,6 +25,14 @@ namespace MrcheTrekking.ViewModels
         public string Immagine
         {
             get { return string.Format("{0}.jpg", _percorso.Immagine); }
+            set
+            {
+                if (_percorso.Immagine != value)
+                {
+                    _percorso.Immagine = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public string Caratteristiche

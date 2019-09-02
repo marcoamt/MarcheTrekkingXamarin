@@ -36,6 +36,25 @@ namespace MrcheTrekking.Views
             SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
         }
 
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as PercorsiViewModel;
+            if (item == null)
+            {
+                // the item was deselected
+                return;
+            }
+            item.Immagine = "logo";
+
+            
+            
+            // Navigate to the detail page
+            await Navigation.PushAsync(new DettaglioPercorso(new DettaglioPercorsoViewModel(item)));
+
+            // Manually deselect item
+            lstView.SelectedItem = null;
+        }
+
         public MieiPercorsi()
         {
             BindingContext = new ListMyPercorsiViewModel();
