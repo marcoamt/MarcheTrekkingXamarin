@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+using MrcheTrekking.Models;
 using MrcheTrekking.Utility;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -8,59 +13,68 @@ namespace MrcheTrekking.Views
 {
     public partial class Mappa : ContentPage
     {
-        public Mappa()
+        public Mappa(string m)
         {
-            /*var map = new Map(
-            MapSpan.FromCenterAndRadius(
-                    new Position(42.9196100, 13.2727700), Distance.FromMiles(0.3)))
-            {
-                IsShowingUser = true,
-                HeightRequest = 100,
-                WidthRequest = 960,
-                VerticalOptions = LayoutOptions.FillAndExpand
-            };
-            var stack = new StackLayout { Spacing = 0 };
-            stack.Children.Add(map);
-            Content = stack;*/
             InitializeComponent();
-            /*var customMap = new CustomMap
+
+            //inizializzo la mappa custom che consente di unire i punti delle coordinate
+            var customMap = new CustomMap
             {
                 MapType = MapType.Street,
-            };*/
-            var customMap = new Map();
-            var stack = new StackLayout { Spacing = 0 };
-            stack.Children.Add(customMap);
-            Content = stack;
-            var position = new Position(37, -122); // Latitude, Longitude
+                
+            };
+
+            //split della stringa che contiene le coordinate
+            string[] c = m.Split(',');
+            List<double> latitudine = new List<double>();
+            List<double> longitudine = new List<double>();
+
+            for (int i = 0; i < c.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    latitudine.Add(Double.Parse(c[i]));
+                }
+                else
+                {
+                    longitudine.Add(Double.Parse(c[i]));
+                }
+            }
+
+            //inserimento di un pin all'inizio del percorso
             var pin = new Pin
             {
                 Type = PinType.Place,
-                Position = position,
-                Label = "custom pin",
+                Position = new Position(latitudine[0], longitudine[0]),
+                Label = "Start",
                 Address = "custom detail info"
             };
             customMap.Pins.Add(pin);
 
-            /*customMap.RouteCoordinates.Add(new Position(37.797534, -122.401827));
-            customMap.RouteCoordinates.Add(new Position(37.797510, -122.402060));
-            customMap.RouteCoordinates.Add(new Position(37.790269, -122.400589));
-            customMap.RouteCoordinates.Add(new Position(37.790265, -122.400474));
-            customMap.RouteCoordinates.Add(new Position(37.790228, -122.400391));
-            customMap.RouteCoordinates.Add(new Position(37.790126, -122.400360));
-            customMap.RouteCoordinates.Add(new Position(37.789250, -122.401451));
-            customMap.RouteCoordinates.Add(new Position(37.788440, -122.400396));
-            customMap.RouteCoordinates.Add(new Position(37.787999, -122.399780));
-            customMap.RouteCoordinates.Add(new Position(37.786736, -122.398202));
-            customMap.RouteCoordinates.Add(new Position(37.786345, -122.397722));
-            customMap.RouteCoordinates.Add(new Position(37.785983, -122.397295));
-            customMap.RouteCoordinates.Add(new Position(37.785559, -122.396728));
-            customMap.RouteCoordinates.Add(new Position(37.780624, -122.390541));
-            customMap.RouteCoordinates.Add(new Position(37.777113, -122.394983));
-            customMap.RouteCoordinates.Add(new Position(37.776831, -122.394627));
+            //creazione del percorso collegando ogni punto con una linea polyline
+            for (int i = 0; i < latitudine.Count; i++)
+            {
+                customMap.RouteCoordinates.Add(new Position(latitudine[i], longitudine[i]));
+            }
 
-            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(37.79752, -122.40183), Distance.FromMiles(1.0)));*/
-            //Content = customMap;
+            //inserimento di un pin alla fine del percorso
+            var pinF = new Pin
+            {
+                Type = PinType.Place,
+                Position = new Position(latitudine[latitudine.Count-1], longitudine[latitudine.Count-1]),
+                Label = "End",
+                Address = "custom detail info"
+            };
+            customMap.Pins.Add(pinF);
+
+            //centro la mappa all'inizio del percorso
+            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitudine[0], longitudine[0]), Distance.FromMiles(1.0)));
+
+            //setto il contenuto del layout
+            Content = customMap;
 
         }
+
+
     }
 }

@@ -19,10 +19,12 @@ namespace MrcheTrekking.Views
 
         protected async void GoMappa(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Mappa());
+            //vado alla pagina che farà vedere la mappa passando come parametro le coordinate contenute nel database
+            await Navigation.PushAsync(new Mappa(dp.Item.Mappa));
         }
         protected async void GoRecensioni(object sender, EventArgs args)
         {
+            //passo il nome del percorso alla pagina delle recensioni
             await Navigation.PushAsync(new RecensionePercorso(dp.Item.Nome));
         }
     }
