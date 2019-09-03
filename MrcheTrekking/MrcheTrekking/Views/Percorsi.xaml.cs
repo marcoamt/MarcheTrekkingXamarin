@@ -38,21 +38,6 @@ namespace MrcheTrekking.Views
             SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
         }
 
-        /*private void HandleItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (e.SelectedItem == null)
-            {
-                return;
-            }
-
-            var command = ItemSelectedCommand;
-            if (command != null && command.CanExecute(e.SelectedItem))
-            {
-                command.Execute(e.SelectedItem);
-            }
-        }*/
-
-
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as PercorsiViewModel;
