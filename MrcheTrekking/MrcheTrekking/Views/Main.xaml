@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MrcheTrekking.Views.Main">
-  <ContentPage.Content>
-      <StackLayout>
-            <Label Text="Benvenuto!" />
-            <Button Text="Accedi" Clicked="Accedi"/>
-            <Button Text="Registrati" Clicked="Registrati"/>
+    <ContentPage.Content >
+        <StackLayout  HorizontalOptions="Center">
+            <Image Source="logo.jpg" />
+            <Button Text="Accedi" Clicked="Accedi" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White" />
+            <Button Text="Registrati" Clicked="Registrati" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"  />
         </StackLayout>
   </ContentPage.Content>
 </ContentPage>
