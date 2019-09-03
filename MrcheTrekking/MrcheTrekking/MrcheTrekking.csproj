@@ -21,6 +21,7 @@
   <ItemGroup>
     <Compile Remove="Utility\CustomMapRenderer.cs" />
     <Compile Remove="Views\RecensionePercorso.cs" />
+    <Compile Remove="Models\MappaModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
@@ -29,5 +30,9 @@
     <EmbeddedResource Update="Views\MieiPercorsi.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove="Images\.DS_Store" />
   </ItemGroup>
 </Project>

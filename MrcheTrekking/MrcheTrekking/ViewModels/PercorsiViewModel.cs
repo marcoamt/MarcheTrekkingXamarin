@@ -22,6 +22,11 @@ namespace MrcheTrekking.ViewModels
             get { return _percorso.Descrizione; }
         }
 
+        public string Mappa
+        {
+            get { return _percorso.Mappa; }
+        }
+
         public string Immagine
         {
             get { return string.Format("{0}.jpg", _percorso.Immagine); }

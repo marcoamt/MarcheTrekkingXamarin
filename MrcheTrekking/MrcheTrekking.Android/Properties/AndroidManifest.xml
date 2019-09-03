@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.MrcheTrekking">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+	<application android:label="MrcheTrekking.Android">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAQDQkdUBbO9cOMqBmnb5MuEyYDYyjHtnI" />
+		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+	</application>
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -8,8 +12,4 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="MrcheTrekking.Android">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCTZAXgwVgSaHW5Qf3Xjn3bmBa2nnOZvwc" />
-		<uses-library android:name="org.apache.http.legacy" android:required="false" />
-	</application>
 </manifest>

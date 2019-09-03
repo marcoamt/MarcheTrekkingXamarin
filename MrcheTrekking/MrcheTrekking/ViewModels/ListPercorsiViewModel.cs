@@ -42,20 +42,8 @@ namespace MrcheTrekking.ViewModels
             }
         }
 
-        /*public ICommand ItemSelectedCommand { get; set; }
-
-        private void OnItemSelected(PercorsiViewModel percorsoVM)
-        {
-            Navigation.PushAsync<DettaglioPercorsoViewModel>((viewmodel, page) =>
-            {
-                viewmodel.Percorso = percorsoVM;
-            });
-
-        }*/
-
         public ListPercorsiViewModel()
         {
-            //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Percorsi = new ObservableCollection<PercorsiViewModel>();
             Nomi = new ObservableCollection<string>();
             GetPercorsi(Percorsi, Nomi);
@@ -64,6 +52,8 @@ namespace MrcheTrekking.ViewModels
 
         public static async Task GetPercorsi(IList<PercorsiViewModel> percorsi, IList<String> nomi)
         {
+            //ottengo la lista di tutti i percorsi che mi serviranno per popolare la listview di Percorsi
+            //e ottengo una lista di solo i nomi dei percorsi che uso nella select per lasciare recensioni
             var uri = new Uri("http://marchetrekking.altervista.org/percorsiJSON.php");
             HttpClient myClient = new HttpClient();
 
