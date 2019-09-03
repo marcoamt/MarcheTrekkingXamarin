@@ -1,21 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MrcheTrekking.Views.Home" Title="Welcome">
+             x:Class="MrcheTrekking.Views.Home" Title="Welcome" >
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Logout" Clicked="Logout" Icon="exit.jpg"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label x:Name="User" />
-
         <Image Source="trekking.jpg" />
-        <!--<StackLayout>
-            <Button Text="Percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="Percorsi"/>
-            <Button Text="Inserisci Percorso" WidthRequest="300" HorizontalOptions="Center" Clicked="AggiungiPercorso"/>
-            <Button Text="Recensioni" WidthRequest="300" HorizontalOptions="Center" Clicked="Recensioni"/>
-            <Button Text="I miei percorsi" WidthRequest="300" HorizontalOptions="Center" Clicked="MieiPercorsi"/>
-        </StackLayout>-->
         <Grid Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition  Height="100" ></RowDefinition>
@@ -25,12 +17,6 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <!--<StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#3094d2"  >
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                    <Image   Source="@drawable/logo.jpg" VerticalOptions="Center" HorizontalOptions="Center" />
-                </StackLayout>
-                
-            </StackLayout>-->
             <Button Text="Percorsi" Grid.Row="0" Grid.Column="0"  BackgroundColor="#287cbe" TextColor="White" Clicked="Percorsi"/>
             <Button Text="Inserisci Percorso"   Grid.Row="0" Grid.Column="1"  BackgroundColor="#287cbe" TextColor="White" Clicked="AggiungiPercorso"  />
             <Button Text="Recensioni" Grid.Row="1" Grid.Column="0"  BackgroundColor="#5153a9"  TextColor="White" Clicked="Recensioni" />

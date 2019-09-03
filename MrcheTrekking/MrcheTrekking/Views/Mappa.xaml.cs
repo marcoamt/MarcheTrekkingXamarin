@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
-using MrcheTrekking.Models;
 using MrcheTrekking.Utility;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 

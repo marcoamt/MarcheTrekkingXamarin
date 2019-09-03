@@ -15,8 +15,6 @@ namespace MrcheTrekking.Views
         public Home ()
 		{
 			InitializeComponent ();
-            User.Text = MrcheTrekking.Utility.Settings.User;
-            var image = new Image { Source = "trekking.jpg" };
         }
 
         protected async void Percorsi(object sender, EventArgs args)
