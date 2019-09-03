@@ -4,9 +4,9 @@
              x:Class="MrcheTrekking.Views.Login" Title="Login">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="username" Placeholder="Username"/>
-            <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
+        <StackLayout HorizontalOptions="Fill"  Margin="50">
+            <Entry x:Name="username" Placeholder="Username" />
+            <Entry x:Name="password" Placeholder="Password" IsPassword="True" />
             <Button Text="Accedi" Clicked="Log" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"  />
             
         </StackLayout>

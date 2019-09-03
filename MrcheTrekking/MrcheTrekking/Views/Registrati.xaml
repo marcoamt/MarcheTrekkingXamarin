@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MrcheTrekking.Views.Registrati" Title="Registrati">
   <ContentPage.Content>
-      <StackLayout>
+        <StackLayout HorizontalOptions="Fill"  Margin="10">
           <Entry x:Name="nome" Placeholder="Nome"/>
             <Entry x:Name="cognome" Placeholder="Cognome"/>
             <Entry x:Name="email" Placeholder="E-mail"/>
@@ -12,7 +12,7 @@
             <Entry x:Name="telefono" Placeholder="Telefono"/>
              <DatePicker x:Name="datadinascita"
                     Format="d"/>
-            <Button Text="Registrati" Clicked="Reg"/>
+            <Button Text="Registrati" Clicked="Reg" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"/>
       </StackLayout>
   </ContentPage.Content>
 </ContentPage>
