@@ -6,9 +6,9 @@
         <StackLayout x:Name="agg" Orientation="Vertical">
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal" VerticalOptions="End">
-            <Button Text="Aggiungi" Clicked="Add" ></Button>
-            <Button Text="Continua" Clicked="Continua"></Button>
+        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
+            <Button Text="Aggiungi" Clicked="Add" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
+            <Button Text="Continua" Clicked="Continua" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
         </StackLayout>
     </StackLayout>
 </ContentPage>
