@@ -6,7 +6,7 @@ using Android.OS;
 using XLabs.Ioc;
 
 namespace MrcheTrekking.Droid
-{ 
+{  
     [Activity(Label = "MrcheTrekking", Icon = "@mipmap/icon", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
