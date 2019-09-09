@@ -39,7 +39,7 @@ namespace MrcheTrekking.ViewModels
 
         public RecensioneViewModel(RecensioneModel recensione)
             {
-            _recensione = recensione;
+                _recensione = recensione;
             }
     
     }

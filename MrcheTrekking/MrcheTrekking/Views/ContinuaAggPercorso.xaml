@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MrcheTrekking.Views.ContinuaAggPercorso">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MrcheTrekking.Views.ContinuaAggPercorso" Title="Inserisci percorso">
     <ContentPage.Content>
-        <StackLayout>
-          <Label Text="continua" />
+        <StackLayout Margin="10">
           <Entry x:Name="nome" Placeholder="Nome"/>
             <Entry x:Name="descrizione" Placeholder="Descrizione"/>
             <Entry x:Name="lunghezza" Placeholder="Lunghezza"/>
             <Entry x:Name="livello" Placeholder="Livello"/>
             <Entry x:Name="durata" Placeholder="Durata" />
-            <Button Text="Aggiungi Percosrso" Clicked="aggiungi"/>
+            <Button Text="Aggiungi Percosrso" Clicked="aggiungi" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"/>
       </StackLayout>
     </ContentPage.Content>
 </ContentPage>

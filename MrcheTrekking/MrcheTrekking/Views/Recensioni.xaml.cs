@@ -38,6 +38,7 @@ namespace MrcheTrekking.Views
             {
                 DisplayAlert("Alert", "Recensione aggiunta", "OK");
             }
+           
 
         }
     }
