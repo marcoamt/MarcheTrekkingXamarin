@@ -12,7 +12,7 @@ namespace MrcheTrekking.Views
         {
             InitializeComponent();
             for (int i = 0; i < latitudine.Count; i++)
-                mappa = latitudine[i] + ", " + longitudine[i];
+                mappa += latitudine[i] + ", " + longitudine[i] +",";
         }
 
         //async
@@ -47,7 +47,7 @@ namespace MrcheTrekking.Views
             if (s.Equals("1"))
             {
                 DisplayAlert("Alert", "Percorso aggiunto", "OK");
-                await Navigation.PushAsync(new Home());
+                await Navigation.PopToRootAsync();
             }
 
         }

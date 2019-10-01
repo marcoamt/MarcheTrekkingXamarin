@@ -11,8 +11,8 @@
                     <custom:CustomViewCell SelectedItemBackgroundColor="#adf3bc">  
 					    <ViewCell.View>
 						    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                                    <Image Source="{Binding Immagine}" HorizontalOptions="Start" WidthRequest="100" HeightRequest="200"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Immagine}" HorizontalOptions="Start"/>
                                 </StackLayout>
 							    <StackLayout Orientation="Vertical">
 								    <Label Text = "{Binding Nome}" FontSize="18" />

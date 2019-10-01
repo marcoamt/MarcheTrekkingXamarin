@@ -13,11 +13,11 @@ namespace MrcheTrekking.Views
             InitializeComponent();
 
             //inizializzo la mappa custom che consente di unire i punti delle coordinate
-            var customMap = new CustomMap
+            /*var customMap = new CustomMap
             {
                 MapType = MapType.Street,
                 
-            };
+            };*/
 
             //split della stringa che contiene le coordinate
             string[] c = m.Split(',');
@@ -64,9 +64,9 @@ namespace MrcheTrekking.Views
 
             //centro la mappa all'inizio del percorso
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitudine[0], longitudine[0]), Distance.FromMiles(1.0)));
-
+            
             //setto il contenuto del layout
-            Content = customMap;
+            //Content = customMap;
 
         }
 

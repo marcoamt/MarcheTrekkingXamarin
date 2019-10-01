@@ -4,7 +4,7 @@
         <StackLayout Margin="10">
             <Picker x:Name="Picker" ItemsSource="{Binding Nomi}" Title="Seleziona"> </Picker>
             <Label Text="Scrivi la recensione"></Label>
-            <Entry x:Name="feedback"></Entry>
+            <Entry x:Name="feedback" Placeholder="Scrivi la tua recensione"></Entry>
             <Button Text="Aggiungi" Clicked="Aggiungi" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
         </StackLayout>
     </ContentPage.Content>

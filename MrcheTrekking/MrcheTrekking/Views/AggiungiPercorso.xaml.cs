@@ -12,10 +12,12 @@ namespace MrcheTrekking.Views
         public AggiungiPercorso()
         {
             InitializeComponent();
+            prosegui.IsEnabled = false;
         }
 
         protected void Add(object sender, EventArgs args)
         {
+            prosegui.IsEnabled = true;
             var row = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.FillAndExpand};
             var l = new Label{ Text = "Coordinate" + i};
             Entry lat = new Entry { Placeholder = "Latitudine"};
@@ -25,6 +27,13 @@ namespace MrcheTrekking.Views
             row.Children.Add(lon);
             agg.Children.Add(row);
             i++;
+        }
+
+        protected void Undo(object sender, EventArgs args)
+        {
+            var flag = i;
+            agg.Children.RemoveAt(flag-1);
+            i--;
         }
 
         protected async void Continua(object sender, EventArgs args)
@@ -41,9 +50,28 @@ namespace MrcheTrekking.Views
                 longitudine.Add(lon.Text);
             }
 
+            bool ok = false;
+            for(int l=0; l<latitudine.Count; l++)
+            {
+                if(latitudine[l] != null && longitudine[l]!= null)
+                {
+                    ok = true;
+                }
+                else
+                {
+                    ok = false;
+                }
+                        
+            }
             //passare alla prossima view per aggiungere i dettagli del percorso creato
-
-            await Navigation.PushAsync(new ContinuaAggPercorso(latitudine, longitudine));
+            if(ok)
+            {
+                await Navigation.PushAsync(new ContinuaAggPercorso(latitudine, longitudine));
+            }
+            else
+            {
+                DisplayAlert("Alert", "Completa i campi", "OK");
+            }
         }
     }
 }

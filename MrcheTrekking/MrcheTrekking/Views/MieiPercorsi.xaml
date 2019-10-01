@@ -5,11 +5,13 @@
     x:Class="MrcheTrekking.Views.MieiPercorsi"
     Title="I miei percorsi">
     <ContentPage.Content>
-        <ListView  x:Name="lstView" ItemsSource="{Binding Percorsi}" ItemSelected="OnItemSelected" RowHeight="60">
+        <ListView  x:Name="lstView" ItemsSource="{Binding Percorsi}" ItemSelected="OnItemSelected" RowHeight="80">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                    <Image Source="{Binding Immagine}" HorizontalOptions="Start" WidthRequest="100" HeightRequest="200"/>
+
                             <StackLayout Orientation="Vertical">
                                 <Label Text = "{Binding Nome}" FontSize="18" /><!--Nome Percorso-->
                                 <Label Text = "{Binding Descrizione}" /><!--Descrizione Percorso-->

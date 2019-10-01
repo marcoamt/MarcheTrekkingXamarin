@@ -3,12 +3,13 @@
     <StackLayout x:Name="colonna" VerticalOptions="FillAndExpand" Orientation="Vertical">
         
 
-        <StackLayout x:Name="agg" Orientation="Vertical">
+        <StackLayout x:Name="agg" Orientation="Vertical" Margin="20,0,20,0">
         </StackLayout>
 
         <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
             <Button Text="Aggiungi" Clicked="Add" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
-            <Button Text="Continua" Clicked="Continua" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
+            <Button Text="Undo" Clicked="Undo" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
+            <Button x:Name="prosegui" Text="Continua" Clicked="Continua" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
         </StackLayout>
     </StackLayout>
 </ContentPage>

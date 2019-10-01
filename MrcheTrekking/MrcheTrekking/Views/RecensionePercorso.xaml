@@ -9,20 +9,16 @@
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
-<<<<<<< HEAD
                         <StackLayout HorizontalOptions="FillAndExpand" Margin="10">
                             <Label Text = "{Binding UserName}" FontSize="18"/>
                                 <Label Text = "{Binding Recensione}" />
                         </StackLayout>
-                        <!--<Image Source="{Binding Immagine}" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 "/>-->
-=======
 						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
 							<StackLayout Orientation="Vertical">
 								<Label Text = "{Binding UserName}" FontSize="18" />
 								<Label Text = "{Binding Recensione}" />
 							</StackLayout>
 						</StackLayout>
->>>>>>> f97ad5b... upd
 					</ViewCell>
 				</DataTemplate>
 			</ListView.ItemTemplate>

@@ -16,30 +16,35 @@ namespace MrcheTrekking.Views
 
         protected async void Aggiungi(object sender, EventArgs args)
         {
-            string nomePercorso = Picker.SelectedItem.ToString();
-            string recensione = feedback.Text;
-
-            var uri = "http://marchetrekking.altervista.org/aggiungi_recensione.php";
-
-            //body della post request
-            var content = new FormUrlEncodedContent(new[]
+            if(Picker.SelectedIndex != -1 && feedback.Text != null)
             {
-                new KeyValuePair<string,string> ("percorso", nomePercorso),
-                new KeyValuePair<string,string> ("recensione", recensione),
-                new KeyValuePair<string,string> ("user", Utility.Settings.User),
-            });
+                string nomePercorso = Picker.SelectedItem.ToString();
+                string recensione = feedback.Text;
 
-            //inoltro richiesta al server
-            HttpClient client = new HttpClient();
-            var response = await client.PostAsync(uri, content);
-            var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-            String s = risp.Trim();
-            if (s.Equals("1"))
-            {
-                DisplayAlert("Alert", "Recensione aggiunta", "OK");
+                var uri = "http://marchetrekking.altervista.org/aggiungi_recensione.php";
+
+                //body della post request
+                var content = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string,string> ("percorso", nomePercorso),
+                    new KeyValuePair<string,string> ("recensione", recensione),
+                    new KeyValuePair<string,string> ("user", Utility.Settings.User),
+                });
+
+                //inoltro richiesta al server
+                HttpClient client = new HttpClient();
+                var response = await client.PostAsync(uri, content);
+                var risp = await response.Content.ReadAsStringAsync();  //risposta del server
+                String s = risp.Trim();
+                if (s.Equals("1"))
+                {
+                    DisplayAlert("Alert", "Recensione aggiunta", "OK");
+                }
             }
-           
-
+            else
+            {
+                DisplayAlert("Alert", "Completa i campi", "OK");
+            }
         }
     }
 }
