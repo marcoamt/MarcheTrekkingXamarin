@@ -22,6 +22,7 @@
     <Compile Remove="Utility\CustomMapRenderer.cs" />
     <Compile Remove="Views\RecensionePercorso.cs" />
     <Compile Remove="Models\MappaModel.cs" />
+    <Compile Remove="Data\DataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

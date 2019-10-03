@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MrcheTrekking.Views.AggiungiPercorso" Title="Inserisci percorso">
+    <ContentPage.Content>
+        <ScrollView>
     <StackLayout x:Name="colonna" VerticalOptions="FillAndExpand" Orientation="Vertical">
         
 
@@ -8,8 +10,10 @@
 
         <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
             <Button Text="Aggiungi" Clicked="Add" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
-            <Button Text="Undo" Clicked="Undo" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
+            <Button x:Name="undo" Text="Undo" Clicked="Undo" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
             <Button x:Name="prosegui" Text="Continua" Clicked="Continua" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"></Button>
         </StackLayout>
     </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

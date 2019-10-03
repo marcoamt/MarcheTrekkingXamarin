@@ -13,11 +13,13 @@ namespace MrcheTrekking.Views
         {
             InitializeComponent();
             prosegui.IsEnabled = false;
+            undo.IsEnabled = false;
         }
 
         protected void Add(object sender, EventArgs args)
         {
             prosegui.IsEnabled = true;
+            undo.IsEnabled = true;
             var row = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.FillAndExpand};
             var l = new Label{ Text = "Coordinate" + i};
             Entry lat = new Entry { Placeholder = "Latitudine"};
@@ -34,6 +36,12 @@ namespace MrcheTrekking.Views
             var flag = i;
             agg.Children.RemoveAt(flag-1);
             i--;
+
+            if (agg.Children.Count == 0)
+            {
+                prosegui.IsEnabled = false;
+                undo.IsEnabled = false;
+            }
         }
 
         protected async void Continua(object sender, EventArgs args)
@@ -50,19 +58,26 @@ namespace MrcheTrekking.Views
                 longitudine.Add(lon.Text);
             }
 
-            bool ok = false;
-            for(int l=0; l<latitudine.Count; l++)
+            //verifico che tutti i campi di lat e long siano stati inseriti prima di continuare
+            bool ok = true;
+            while (ok == true)
             {
-                if(latitudine[l] != null && longitudine[l]!= null)
+                for (int l=0; l<latitudine.Count; l++)
                 {
-                    ok = true;
-                }
-                else
-                {
-                    ok = false;
-                }
+                    if(!string.IsNullOrEmpty(latitudine[l]) && !string.IsNullOrEmpty(longitudine[l]))
+                    {
+                        ok = true;
+                    }
+                    else
+                    {
+                        ok = false;
+                        break;
+                    }
                         
+                }
+                break;
             }
+            
             //passare alla prossima view per aggiungere i dettagli del percorso creato
             if(ok)
             {

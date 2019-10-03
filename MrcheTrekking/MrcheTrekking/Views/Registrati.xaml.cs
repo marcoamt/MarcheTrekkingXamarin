@@ -29,32 +29,39 @@ namespace MrcheTrekking.Views
             string p = password.Text;
             string d = datadinascita.Date.Year.ToString() + "/" + datadinascita.Date.Month.ToString() + "/" + datadinascita.Date.Day.ToString();
 
-            var uri = "http://marchetrekking.altervista.org/aggiungi_utente.php";
-
-            //body della post request
-            var content = new FormUrlEncodedContent(new[]
+            if(!string.IsNullOrEmpty(n) && !string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(e) && !string.IsNullOrEmpty(u) && !string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(p))
             {
-                new KeyValuePair<string,string> ("user", u),
-                new KeyValuePair<string,string> ("pass", p),
-                new KeyValuePair<string,string> ("mail", e),
-                new KeyValuePair<string,string> ("n", n),
-                new KeyValuePair<string,string> ("c", c),
-                new KeyValuePair<string,string> ("telef", t),
-                new KeyValuePair<string,string> ("dnascita", d),
-            });
+                var uri = "http://marchetrekking.altervista.org/aggiungi_utente.php";
 
-            //inoltro richiesta al server
-            HttpClient client = new HttpClient();
-            var response = await client.PostAsync(uri, content);
-            var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-            String s = risp.Trim();
-            if(s.Equals("1"))
+                //body della post request
+                var content = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string,string> ("user", u),
+                    new KeyValuePair<string,string> ("pass", p),
+                    new KeyValuePair<string,string> ("mail", e),
+                    new KeyValuePair<string,string> ("n", n),
+                    new KeyValuePair<string,string> ("c", c),
+                    new KeyValuePair<string,string> ("telef", t),
+                    new KeyValuePair<string,string> ("dnascita", d),
+                });
+
+                //inoltro richiesta al server
+                HttpClient client = new HttpClient();
+                var response = await client.PostAsync(uri, content);
+                var risp = await response.Content.ReadAsStringAsync();  //risposta del server
+                String s = risp.Trim();
+                if(s.Equals("1"))
+                {
+                    MrcheTrekking.Utility.Settings.User = u;    //uso il pacchetto nuget Xamarin Settings per abilitare una "sessione"
+                    Navigation.InsertPageBefore(new Home(), this);
+                    await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
+                }
+            }
+            else
             {
-                MrcheTrekking.Utility.Settings.User = u;    //uso del pacchetto nuget Xamarin Settings per abilitare una "sessione"
-                Navigation.InsertPageBefore(new Home(), this);
-                await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
+                DisplayAlert("Errore", "Riempire tutti i campi", "OK");
             }
 
-         }
+        }
 	}
 }
