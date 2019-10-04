@@ -11,8 +11,10 @@ namespace MrcheTrekking.Views
         public ContinuaAggPercorso(List<string> latitudine, List<string> longitudine)
         {
             InitializeComponent();
-            for (int i = 0; i < latitudine.Count; i++)
+            for (int i = 0; i < latitudine.Count-1; i++)
                 mappa += latitudine[i] + ", " + longitudine[i] +",";
+
+            mappa += latitudine[latitudine.Count-1] + ", " + longitudine[longitudine.Count-1];
         }
 
         //async
