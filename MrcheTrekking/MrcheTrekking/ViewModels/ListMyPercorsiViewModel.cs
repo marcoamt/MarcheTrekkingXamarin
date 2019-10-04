@@ -70,7 +70,9 @@ namespace MrcheTrekking.ViewModels
                 var Items = JsonConvert.DeserializeObject<List<PercorsiModel>>(risp);
                 for (int i = 0; i < Items.Count; i++)
                 {
-                    percorsi.Add(new PercorsiViewModel(Items[i]));
+                    var p = new PercorsiViewModel(Items[i]);
+                    p.Immagine = "logo";
+                    percorsi.Add(p);
                     nomi.Add(Items[i].Nome);
                 }
             }

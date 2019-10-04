@@ -44,7 +44,6 @@ namespace MrcheTrekking.Views
                 // the item was deselected
                 return;
             }
-            item.Immagine = "logo";
 
             
             

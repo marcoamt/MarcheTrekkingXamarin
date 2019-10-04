@@ -10,8 +10,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                    <Image Source="{Binding Immagine}" HorizontalOptions="Start" WidthRequest="100" HeightRequest="200"/>
-
+                            <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Immagine}" WidthRequest="100" HeightRequest="200" />
+                            </StackLayout>
                             <StackLayout Orientation="Vertical">
                                 <Label Text = "{Binding Nome}" FontSize="18" /><!--Nome Percorso-->
                                 <Label Text = "{Binding Descrizione}" /><!--Descrizione Percorso-->
