@@ -16,11 +16,12 @@ namespace MrcheTrekking.Views
 
         protected async void Aggiungi(object sender, EventArgs args)
         {
-            if(Picker.SelectedIndex != -1 && feedback.Text != null)
-            {
-                string nomePercorso = Picker.SelectedItem.ToString();
-                string recensione = feedback.Text;
+            string recensione = feedback.Text;
 
+            if(Picker.SelectedIndex != -1 && !String.IsNullOrEmpty(recensione))
+            {
+
+                string nomePercorso = Picker.SelectedItem.ToString();
                 var uri = "http://marchetrekking.altervista.org/aggiungi_recensione.php";
 
                 //body della post request

@@ -60,22 +60,18 @@ namespace MrcheTrekking.Views
 
             //verifico che tutti i campi di lat e long siano stati inseriti prima di continuare
             bool ok = true;
-            while (ok == true)
+            for (int l=0; l<latitudine.Count; l++)
             {
-                for (int l=0; l<latitudine.Count; l++)
+                if(!string.IsNullOrEmpty(latitudine[l]) && !string.IsNullOrEmpty(longitudine[l]))
                 {
-                    if(!string.IsNullOrEmpty(latitudine[l]) && !string.IsNullOrEmpty(longitudine[l]))
-                    {
-                        ok = true;
-                    }
-                    else
-                    {
-                        ok = false;
-                        break;
-                    }
-                        
+                    ok = true;
                 }
-                break;
+                else
+                {
+                    ok = false;
+                    break;
+                }
+                        
             }
             
             //passare alla prossima view per aggiungere i dettagli del percorso creato
