@@ -5,18 +5,14 @@
     x:Class="MrcheTrekking.Views.RecensionePercorso"
     Title="Recensioni percorso">
     <ContentPage.Content>
-        <ListView  x:Name="lstView" ItemsSource="{Binding Recensioni}" RowHeight="100" >
+        <ListView  x:Name="lstView" ItemsSource="{Binding Recensioni}" Margin="10,10,10,10"  RowHeight="100" SelectionMode="None">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
-                        <StackLayout HorizontalOptions="FillAndExpand" Margin="10">
-                            <Label Text = "{Binding UserName}" FontSize="18"/>
-                                <Label Text = "{Binding Recensione}" />
-                        </StackLayout>
 						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
 							<StackLayout Orientation="Vertical">
-								<Label Text = "{Binding UserName}" FontSize="18" />
-								<Label Text = "{Binding Recensione}" />
+								<Label Text = "{Binding Recensione}" TextColor="Black" FontSize="18" />
+								<Label Text = "{Binding UserName}"/>
 							</StackLayout>
 						</StackLayout>
 					</ViewCell>

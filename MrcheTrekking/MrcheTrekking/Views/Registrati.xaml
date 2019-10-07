@@ -10,8 +10,7 @@
             <Entry x:Name="username" Placeholder="Usename"/>
             <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
             <Entry x:Name="telefono" Placeholder="Telefono"/>
-             <DatePicker x:Name="datadinascita"
-                    Format="d"/>
+             <DatePicker x:Name="datadinascita" />
             <Button Text="Registrati" Clicked="Reg" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"/>
       </StackLayout>
   </ContentPage.Content>

@@ -16,6 +16,8 @@ namespace MrcheTrekking.Views
 		public Registrati ()
 		{
 			InitializeComponent ();
+            datadinascita.Date = new DateTime(day: 31, month: 12, year:2005);
+            datadinascita.Format = "dd/MM/yyyy"; 
 		}
          //async
         protected async void Reg(object sender, EventArgs args)
@@ -27,7 +29,18 @@ namespace MrcheTrekking.Views
             string u = username.Text;
             string t = telefono.Text;
             string p = password.Text;
-            string d = datadinascita.Date.Year.ToString() + "/" + datadinascita.Date.Month.ToString() + "/" + datadinascita.Date.Day.ToString();
+            string d ="";
+            if(datadinascita.Date.Year <= 2005)
+            {
+                d = datadinascita.Date.Year.ToString() + "/" + datadinascita.Date.Month.ToString() + "/" + datadinascita.Date.Day.ToString();
+            }
+            else
+            {
+                DisplayAlert("Errore", "Data di nascita non valida", "OK");
+                return;
+            }
+            
+
 
             if(!string.IsNullOrEmpty(n) && !string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(e) && !string.IsNullOrEmpty(u) && !string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(p))
             {
