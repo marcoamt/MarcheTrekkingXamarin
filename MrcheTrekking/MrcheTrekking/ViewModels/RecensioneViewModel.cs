@@ -10,6 +10,13 @@ namespace MrcheTrekking.ViewModels
     public class RecensioneViewModel : ViewModel
     {
         private readonly RecensioneModel _recensione;
+        public int Id
+        {
+            get
+            {
+                return _recensione.IdRecensione;
+            }
+        }
 
         public string NomePercorso
         {

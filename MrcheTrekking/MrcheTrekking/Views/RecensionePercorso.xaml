@@ -5,7 +5,7 @@
     x:Class="MrcheTrekking.Views.RecensionePercorso"
     Title="Recensioni percorso">
     <ContentPage.Content>
-        <ListView  x:Name="lstView" ItemsSource="{Binding Recensioni}" Margin="10,10,10,10"  RowHeight="100" SelectionMode="None">
+        <ListView  x:Name="lstView" ItemsSource="{Binding Recensioni}" Margin="10,10,10,10"  RowHeight="100" ItemSelected="OnAlertYesNoClicked" >
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
