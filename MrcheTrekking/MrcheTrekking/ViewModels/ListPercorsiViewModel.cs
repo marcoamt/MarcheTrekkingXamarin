@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 using System.Threading.Tasks;
 using MrcheTrekking.Models;

@@ -1,5 +1,4 @@
-﻿using MrcheTrekking.Models;
-using XLabs.Forms.Mvvm;
+﻿using XLabs.Forms.Mvvm;
 
 namespace MrcheTrekking.ViewModels
 {

@@ -92,6 +92,7 @@ namespace MrcheTrekking.Views
                     DisplayAlert("Alert", "Non puoi cancellare questa recensione", "Ok");
                 }
             }
+            lstView.SelectedItem = null;
         }
     }
 }
