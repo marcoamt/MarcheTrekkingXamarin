@@ -20,6 +20,7 @@ namespace MrcheTrekking.Views
             };*/
 
             //split della stringa che contiene le coordinate che con la , funziona in emulatore e con ; nel dispositivo
+            //quando fa lo split con l'emulatore mette le coordinate come 43.555
             string[] c = m.Split(',');
             List<double> latitudine = new List<double>();
             List<double> longitudine = new List<double>();

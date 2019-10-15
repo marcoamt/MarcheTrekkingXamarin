@@ -4,8 +4,6 @@ using Xamarin.Forms.Xaml;
 using System.Windows.Input;
 using MrcheTrekking.Utility;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using System;
 using System.Net.Http;
 using System.Collections.Generic;
 
@@ -60,7 +58,7 @@ namespace MrcheTrekking.Views
                 if (Settings.User == item.UserName)
                 {
                     Debug.WriteLine("ok" + Settings.User);
-                    var uri = "http://marchetrekking.altervista.org/cancellaPercorso.php";
+                    var uri = "http://marchetrekking.altervista.org/cancellaRecensione.php";
 
                     //body della post request
                     var content = new FormUrlEncodedContent(new[]

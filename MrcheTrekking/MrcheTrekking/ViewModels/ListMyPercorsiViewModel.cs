@@ -14,10 +14,10 @@ namespace MrcheTrekking.ViewModels
 {
     class ListMyPercorsiViewModel : ViewModel
     {
-        private IList<PercorsiViewModel> _percorsi;
+        private IList<MyPercorsiViewModel> _percorsi;
         private IList<string> _nomi;
 
-        public IList<PercorsiViewModel> Percorsi
+        public IList<MyPercorsiViewModel> Percorsi
         {
             get
             {
@@ -46,12 +46,12 @@ namespace MrcheTrekking.ViewModels
         public ListMyPercorsiViewModel()
         {
             //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
-            Percorsi = new ObservableCollection<PercorsiViewModel>();
+            Percorsi = new ObservableCollection<MyPercorsiViewModel>();
             Nomi = new ObservableCollection<string>();
             GetPercorsi(Percorsi, Nomi);
         }
 
-        public static async Task GetPercorsi(IList<PercorsiViewModel> percorsi, IList<String> nomi)
+        public static async Task GetPercorsi(IList<MyPercorsiViewModel> percorsi, IList<String> nomi)
         {
             var uri = new Uri("http://marchetrekking.altervista.org/myPercorsiJSON.php");
 
@@ -67,10 +67,10 @@ namespace MrcheTrekking.ViewModels
             if (response.IsSuccessStatusCode)
             {
                 var risp = await response.Content.ReadAsStringAsync();
-                var Items = JsonConvert.DeserializeObject<List<PercorsiModel>>(risp);
+                var Items = JsonConvert.DeserializeObject<List<MyPercorsiModel>>(risp);
                 for (int i = 0; i < Items.Count; i++)
                 {
-                    var p = new PercorsiViewModel(Items[i]);
+                    var p = new MyPercorsiViewModel(Items[i]);
                     p.Immagine = "logo";
                     percorsi.Add(p);
                     nomi.Add(Items[i].Nome);
