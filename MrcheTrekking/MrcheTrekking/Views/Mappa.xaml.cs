@@ -11,14 +11,7 @@ namespace MrcheTrekking.Views
         public Mappa(string m)
         {
             InitializeComponent();
-
-            //inizializzo la mappa custom che consente di unire i punti delle coordinate
-            /*var customMap = new CustomMap
-            {
-                MapType = MapType.Street,
-                
-            };*/
-
+            
             //split della stringa che contiene le coordinate che con la , funziona in emulatore e con ; nel dispositivo
             //quando fa lo split con l'emulatore mette le coordinate come 43.555
             string[] c = m.Split(',');
@@ -66,9 +59,6 @@ namespace MrcheTrekking.Views
             //centro la mappa all'inizio del percorso
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitudine[0], longitudine[0]), Distance.FromMiles(1.0)));
             
-            //setto il contenuto del layout
-            //Content = customMap;
-
         }
 
 

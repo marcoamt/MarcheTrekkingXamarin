@@ -15,6 +15,7 @@ namespace MrcheTrekking.Views
         public Home ()
 		{
 			InitializeComponent ();
+            Title += " " + Utility.Settings.User;
         }
 
         protected async void Percorsi(object sender, EventArgs args)
@@ -24,7 +25,7 @@ namespace MrcheTrekking.Views
 
         protected async void Logout(object sender, EventArgs args)
         {
-            MrcheTrekking.Utility.Settings.User = "";
+            Utility.Settings.User = "";
             Navigation.InsertPageBefore(new Main(), this);
             await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
         }
@@ -43,9 +44,5 @@ namespace MrcheTrekking.Views
         {
             await Navigation.PushAsync(new MieiPercorsi());
         }
-
-
-
-
     }
 }

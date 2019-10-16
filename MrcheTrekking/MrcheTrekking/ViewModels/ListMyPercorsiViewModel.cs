@@ -76,9 +76,6 @@ namespace MrcheTrekking.ViewModels
                     nomi.Add(Items[i].Nome);
                 }
             }
-
-
-
         }
     }
 }

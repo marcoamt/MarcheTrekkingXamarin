@@ -27,7 +27,6 @@ namespace MrcheTrekking.ViewModels
         }
         public ListRecensioneViewModel(string nomePercorso)
         {
-            //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Recensioni = new ObservableCollection<RecensioneViewModel>();
             GetRecensione(Recensioni, nomePercorso);
         }

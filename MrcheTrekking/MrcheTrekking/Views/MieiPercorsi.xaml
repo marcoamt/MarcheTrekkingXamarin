@@ -23,7 +23,6 @@
                                 <Label Text = "{Binding Descrizione}" /><!--Descrizione Percorso-->
                                 
                             </StackLayout>
-                            <!--<Image Source="{Binding Immagine}" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 "/>-->
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -14,7 +14,7 @@ namespace MrcheTrekking
             
             // The root page of your application
             RegisterViews();
-            if (MrcheTrekking.Utility.Settings.User.Equals("")) //verifico se l'utente è già loggato
+            if (Utility.Settings.User.Equals("")) //verifico se l'utente è già loggato
             {
                 //MainPage = new NavigationPage((ContentPage)ViewFactory.CreatePage<percorsiViewModel, Main>());
                 MainPage = new NavigationPage(new Main());

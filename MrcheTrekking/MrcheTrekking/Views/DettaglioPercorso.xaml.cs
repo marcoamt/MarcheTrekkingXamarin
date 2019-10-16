@@ -40,7 +40,6 @@ namespace MrcheTrekking.Views
         protected async void GoRecensioni(object sender, EventArgs args)
         {
             //passo il nome del percorso alla pagina delle recensioni
-            //await Navigation.PushAsync(new RecensionePercorso(dp.Item.Nome));
             if (dp is null)
             {
                 await Navigation.PushAsync(new RecensionePercorso(mdp.Item.Nome));

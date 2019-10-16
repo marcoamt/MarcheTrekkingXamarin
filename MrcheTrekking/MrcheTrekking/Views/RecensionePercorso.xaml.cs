@@ -63,7 +63,7 @@ namespace MrcheTrekking.Views
                     //body della post request
                     var content = new FormUrlEncodedContent(new[]
                     {
-                    new KeyValuePair<string,string> ("recensione", item.Id.ToString()),
+                        new KeyValuePair<string,string> ("recensione", item.Id.ToString()),
                     });
 
                     //inoltro richiesta al server
