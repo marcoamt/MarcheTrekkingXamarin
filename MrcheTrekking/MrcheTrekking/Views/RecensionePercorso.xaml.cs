@@ -6,6 +6,7 @@ using MrcheTrekking.Utility;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Collections.Generic;
+using System;
 
 namespace MrcheTrekking.Views
 {
@@ -33,15 +34,13 @@ namespace MrcheTrekking.Views
             SetBinding(ItemSelectedCommandProperty, new Binding(ItemSelectedCommandPropertyName));
         }
 
-        private string percorsoCorrente;
 
-        public RecensionePercorso(string p)
+        public RecensionePercorso()
         {
-            percorsoCorrente = p;
-            BindingContext = new ListRecensioneViewModel(p);
-            
             InitializeComponent();
+            
         }
+
 
         async void OnAlertYesNoClicked(object sender, SelectedItemChangedEventArgs args)
         {
@@ -76,7 +75,7 @@ namespace MrcheTrekking.Views
                         DisplayAlert("Alert", "Recensione cancellata", "OK");
 
                         //update del contenuto di questa pagina
-                        var vUpdatedPage = new RecensionePercorso(percorsoCorrente);
+                        var vUpdatedPage = new RecensionePercorso();
                         Navigation.InsertPageBefore(vUpdatedPage, this);
                         _ = Navigation.PopAsync();
                     }

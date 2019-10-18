@@ -46,9 +46,12 @@ namespace MrcheTrekking.Views
                 // the item was deselected
                 return;
             }
-            
+
             // Navigate to the detail page
-            await Navigation.PushAsync(new DettaglioPercorso(new DettaglioPercorsoViewModel(item)));
+            var detailvm = new DettaglioPercorsoViewModel(item);
+            var detail = new DettaglioPercorso();
+            detail.BindingContext = detailvm;
+            await Navigation.PushAsync(detail);
 
             // Manually deselect item
             lstView.SelectedItem = null;

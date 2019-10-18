@@ -45,10 +45,16 @@ namespace MrcheTrekking.Views
                 return;
             }
 
-            
-            
+
+
             // Navigate to the detail page
-            await Navigation.PushAsync(new DettaglioPercorso(new MyDettaglioPercorsoViewModel(item)));
+            var detailvm = new MyDettaglioPercorsoViewModel(item);
+            var detail = new DettaglioPercorso();
+            detail.BindingContext = detailvm;
+            //Disabilitare bottone recensione
+            var b = (Button)detail.FindByName("Recensione");
+            b.IsVisible = false;
+            await Navigation.PushAsync(detail);
 
             // Manually deselect item
             lstView.SelectedItem = null;

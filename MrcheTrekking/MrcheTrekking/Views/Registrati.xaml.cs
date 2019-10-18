@@ -66,8 +66,13 @@ namespace MrcheTrekking.Views
                 if(s.Equals("1"))
                 {
                     MrcheTrekking.Utility.Settings.User = u;    //uso il pacchetto nuget Xamarin Settings per abilitare una "sessione"
+                    this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                     Navigation.InsertPageBefore(new Home(), this);
                     await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
+                }
+                else
+                {
+                    DisplayAlert("Errore", "Username o telefono già esistenti", "OK");
                 }
             }
             else

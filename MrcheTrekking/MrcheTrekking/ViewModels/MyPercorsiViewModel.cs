@@ -6,7 +6,6 @@ namespace MrcheTrekking.ViewModels
     public class MyPercorsiViewModel: ViewModel
     {
         private readonly MyPercorsiModel _percorso;
-        private string p;
 
         public int Id
         {
@@ -43,7 +42,7 @@ namespace MrcheTrekking.ViewModels
 
         public string Caratteristiche
         {
-            get { return string.Format("Livello: {0} \n Lunghezza: {1} \n Durata: {2}", _percorso.Livello, _percorso.Lunghezza, _percorso.Durata); }
+            get { return string.Format("Livello: {0} \nLunghezza: {1} \nDurata: {2}", _percorso.Livello, _percorso.Lunghezza, _percorso.Durata); }
         }
 
         public MyPercorsiViewModel(MyPercorsiModel percorso)
@@ -51,9 +50,5 @@ namespace MrcheTrekking.ViewModels
             _percorso = percorso;
         }
 
-        public MyPercorsiViewModel(string p)
-        {
-            this.p = p;
-        }
     }
 }
