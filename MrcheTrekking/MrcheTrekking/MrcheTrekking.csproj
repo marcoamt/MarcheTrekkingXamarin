@@ -23,6 +23,7 @@
     <Compile Remove="Views\RecensionePercorso.cs" />
     <Compile Remove="Models\MappaModel.cs" />
     <Compile Remove="Data\DataService.cs" />
+    <Compile Remove="Utility\CustomViewCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
