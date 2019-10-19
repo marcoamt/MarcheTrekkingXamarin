@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MrcheTrekking.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,13 +15,10 @@ namespace MrcheTrekking.Views
 	{
         public Home ()
 		{
+            var home = new HomeViewModel(Navigation);
+            BindingContext = home;
 			InitializeComponent ();
-            Title += " " + Utility.Settings.User;
-        }
-
-        protected async void Percorsi(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new Percorsi());
+            Title += " " + home.Username;
         }
 
         protected async void Logout(object sender, EventArgs args)
@@ -29,7 +27,7 @@ namespace MrcheTrekking.Views
             Navigation.InsertPageBefore(new Main(), this);
             await Navigation.PopAsync();    //rimuove la precedente pagina dallo stack
         }
-
+/*
         protected async void AggiungiPercorso(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new AggiungiPercorso());
@@ -43,6 +41,6 @@ namespace MrcheTrekking.Views
         protected async void MieiPercorsi(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new MieiPercorsi());
-        }
+        }*/
     }
 }

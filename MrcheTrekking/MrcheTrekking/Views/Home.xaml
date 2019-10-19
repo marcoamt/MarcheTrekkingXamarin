@@ -17,10 +17,10 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Text="Percorsi" Grid.Row="0" Grid.Column="0"  BackgroundColor="#287cbe" TextColor="White" Clicked="Percorsi"/>
-            <Button Text="Inserisci Percorso"   Grid.Row="1" Grid.Column="0"  BackgroundColor="#5153a9" TextColor="White" Clicked="AggiungiPercorso"  />
-            <Button Text="Recensioni" Grid.Row="1" Grid.Column="1"  BackgroundColor="#a434a6"  TextColor="White" Clicked="Recensioni" />
-            <Button Text="Miei percorsi" Grid.Row="0" Grid.Column="1" BackgroundColor="#287cbe" TextColor="White"  Clicked="MieiPercorsi" />
+            <Button Text="Percorsi" Grid.Row="0" Grid.Column="0"  BackgroundColor="#287cbe" TextColor="White" Command="{Binding PercorsiCommand}"/>
+            <Button Text="Inserisci Percorso"   Grid.Row="1" Grid.Column="0"  BackgroundColor="#5153a9" TextColor="White" Command="{Binding AggiungiPercorso}"  />
+            <Button Text="Recensioni" Grid.Row="1" Grid.Column="1"  BackgroundColor="#a434a6"  TextColor="White" Command="{Binding Recensioni}" />
+            <Button Text="Miei percorsi" Grid.Row="0" Grid.Column="1" BackgroundColor="#287cbe" TextColor="White"  Command="{Binding MieiPercorsi}" />
 
         </Grid>
     </StackLayout>
