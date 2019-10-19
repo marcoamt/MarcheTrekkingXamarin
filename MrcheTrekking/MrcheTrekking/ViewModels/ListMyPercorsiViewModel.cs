@@ -7,8 +7,8 @@ using MrcheTrekking.Models;
 using System.Net.Http;
 using XLabs.Forms.Mvvm;
 using Newtonsoft.Json;
-
-
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MrcheTrekking.ViewModels
 {
@@ -43,39 +43,18 @@ namespace MrcheTrekking.ViewModels
             }
         }
 
+
         public ListMyPercorsiViewModel()
         {
-            //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Percorsi = new ObservableCollection<MyPercorsiViewModel>();
-            Nomi = new ObservableCollection<string>();
-            GetPercorsi(Percorsi, Nomi);
-        }
-
-        public static async Task GetPercorsi(IList<MyPercorsiViewModel> percorsi, IList<String> nomi)
-        {
-            var uri = new Uri("http://marchetrekking.altervista.org/myPercorsiJSON.php");
-
-            //body della post request
-            var content = new FormUrlEncodedContent(new[]
+            _ = Data.GetMyPercorsi(Items =>
             {
-                new KeyValuePair<string,string> ("username",Utility.Settings.User),
-            });
-
-            HttpClient myClient = new HttpClient();
-
-            var response = await myClient.PostAsync(uri, content);
-            if (response.IsSuccessStatusCode)
-            {
-                var risp = await response.Content.ReadAsStringAsync();
-                var Items = JsonConvert.DeserializeObject<List<MyPercorsiModel>>(risp);
-                for (int i = 0; i < Items.Count; i++)
+                foreach (MyPercorsiViewModel item in Items)
                 {
-                    var p = new MyPercorsiViewModel(Items[i]);
-                    p.Immagine = "logo";
-                    percorsi.Add(p);
-                    nomi.Add(Items[i].Nome);
+                    Percorsi.Add(item);
                 }
-            }
+            });
         }
+
     }
 }

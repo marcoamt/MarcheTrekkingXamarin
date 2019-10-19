@@ -20,13 +20,13 @@ namespace MrcheTrekking.Views
         public const string ItemSelectedCommandPropertyName = "ItemSelectedCommand";
         public static BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(
             propertyName: "ItemSelectedCommand",
-            returnType: typeof(ICommand),
+            returnType: typeof(System.Windows.Input.ICommand),
             declaringType: typeof(Percorsi),
             defaultValue: null);
 
         public ICommand ItemSelectedCommand
         {
-            get { return (ICommand)GetValue(ItemSelectedCommandProperty); }
+            get { return (System.Windows.Input.ICommand)GetValue(ItemSelectedCommandProperty); }
             set { SetValue(ItemSelectedCommandProperty, value); }
         }
 

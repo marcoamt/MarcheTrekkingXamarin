@@ -6,6 +6,8 @@ using MrcheTrekking.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MrcheTrekking.ViewModels
 {
@@ -40,39 +42,44 @@ namespace MrcheTrekking.ViewModels
             }
         }
 
+        /*public ICommand ItemSelectedCommand { get; set; }
+
+        private void OnItemSelected(PercorsiViewModel percorsoVM)
+        {
+            Navigation.PushAsync<DettaglioPercorsoViewModel>((viewmodel, page) =>
+            {
+                viewmodel.Percorso = percorsoVM;
+            });
+
+        }*/
+
         public ListPercorsiViewModel()
         {
+
+            //ItemSelectedCommand = new Command<PercorsiViewModel>(OnItemSelected);
             Percorsi = new ObservableCollection<PercorsiViewModel>();
             Nomi = new ObservableCollection<string>();
-            GetPercorsi(Percorsi, Nomi);
-        }
 
 
-        public static async Task GetPercorsi(IList<PercorsiViewModel> percorsi, IList<String> nomi)
-        {
             //ottengo la lista di tutti i percorsi che mi serviranno per popolare la listview di Percorsi
             //e ottengo una lista di solo i nomi dei percorsi che uso nella select per lasciare recensioni
-            var uri = new Uri("http://marchetrekking.altervista.org/percorsiJSON.php");
-            HttpClient myClient = new HttpClient();
 
-            var response = await myClient.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
+            _ = Data.GetPercorsi(Items =>
+               {
+                   foreach (PercorsiViewModel item in Items)
+                   {
+                       Percorsi.Add(item);
+                   }
+               });
+
+            _ = Data.GetNomiPercorsi(Items =>
             {
-                var content = await response.Content.ReadAsStringAsync();
-                var Items = JsonConvert.DeserializeObject<List<PercorsiModel>>(content);
-                for(int i = 0; i < Items.Count; i++)
+                foreach (string item in Items)
                 {
-                    var p = new PercorsiViewModel(Items[i]);
-                    percorsi.Add(p);
-                    nomi.Add(Items[i].Nome);
+                    Nomi.Add(item);
                 }
-            }
-
-            
-
+            });
         }
-
-
 
     }
 }

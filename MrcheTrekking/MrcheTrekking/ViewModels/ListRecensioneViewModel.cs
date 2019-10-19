@@ -28,31 +28,16 @@ namespace MrcheTrekking.ViewModels
         public ListRecensioneViewModel(string nomePercorso)
         {
             Recensioni = new ObservableCollection<RecensioneViewModel>();
-            GetRecensione(Recensioni, nomePercorso);
-        }
-
-
-        public static async Task GetRecensione(IList<RecensioneViewModel> recensione, string percorso)
-        {
-            var uri = new Uri("http://marchetrekking.altervista.org/recensioniJSON.php");
-            var content = new FormUrlEncodedContent(new[]
+            _ = Data.GetRecensione(Items =>
             {
-                new KeyValuePair<string,string> ("percorso", percorso)
-            });
-            HttpClient client = new HttpClient();
-            var response = await client.PostAsync(uri, content);
-            var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-            if (response.IsSuccessStatusCode)
-            {
-                var Items = JsonConvert.DeserializeObject<List<RecensioneModel>>(risp);
-                for (int i = 0; i < Items.Count; i++)
+                foreach (RecensioneViewModel item in Items)
                 {
-                    recensione.Add(new RecensioneViewModel(Items[i]));
+                    Recensioni.Add(item);
                 }
-            }
-
-
+            }, nomePercorso);
         }
+
+
 
 
 
