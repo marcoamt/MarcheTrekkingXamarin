@@ -24,7 +24,9 @@ namespace MrcheTrekking.Views
         {
             
             string n = nome.Text;
+            string nomeClean = n.Replace("'", "''");
             string c = cognome.Text;
+            string cognomeClean = c.Replace("'", "''");
             string e = email.Text;
             string u = username.Text;
             string t = telefono.Text;
@@ -42,7 +44,7 @@ namespace MrcheTrekking.Views
             
 
 
-            if(!string.IsNullOrEmpty(n) && !string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(e) && !string.IsNullOrEmpty(u) && !string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(p))
+            if(!string.IsNullOrEmpty(nomeClean) && !string.IsNullOrEmpty(cognomeClean) && !string.IsNullOrEmpty(e) && !string.IsNullOrEmpty(u) && !string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(p))
             {
                 var uri = "http://marchetrekking.altervista.org/aggiungi_utente.php";
 
@@ -52,8 +54,8 @@ namespace MrcheTrekking.Views
                     new KeyValuePair<string,string> ("user", u),
                     new KeyValuePair<string,string> ("pass", p),
                     new KeyValuePair<string,string> ("mail", e),
-                    new KeyValuePair<string,string> ("n", n),
-                    new KeyValuePair<string,string> ("c", c),
+                    new KeyValuePair<string,string> ("n", nomeClean),
+                    new KeyValuePair<string,string> ("c", cognomeClean),
                     new KeyValuePair<string,string> ("telef", t),
                     new KeyValuePair<string,string> ("dnascita", d),
                 });

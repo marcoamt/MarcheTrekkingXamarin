@@ -52,10 +52,11 @@ namespace MrcheTrekking.Models
 
         public static async Task GetRecensione(Action<IEnumerable<RecensioneViewModel>> action, string percorso)
         {
+            string nomeClean = percorso.Replace("'", "''");
             var uri = new Uri("http://marchetrekking.altervista.org/recensioniJSON.php");
             var content = new FormUrlEncodedContent(new[]
             {
-                new KeyValuePair<string,string> ("percorso", percorso)
+                new KeyValuePair<string,string> ("percorso", nomeClean)
             });
             HttpClient client = new HttpClient();
             var response = await client.PostAsync(uri, content);

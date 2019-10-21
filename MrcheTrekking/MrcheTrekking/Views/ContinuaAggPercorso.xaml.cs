@@ -22,7 +22,9 @@ namespace MrcheTrekking.Views
         {
 
             string n = nome.Text;
+            string nomeClean = n.Replace("'", "''");
             string d = descrizione.Text;
+            string descClean = d.Replace("'", "''");
             string lu = lunghezza.Text;
             string l = livello.Text;
             string du = durata.Text;
@@ -34,8 +36,8 @@ namespace MrcheTrekking.Views
                 //body della post request
                 var content = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string,string> ("nome", n),
-                    new KeyValuePair<string,string> ("desc", d),
+                    new KeyValuePair<string,string> ("nome", nomeClean),
+                    new KeyValuePair<string,string> ("desc", descClean),
                     new KeyValuePair<string,string> ("map", mappa),
                     new KeyValuePair<string,string> ("durata", du),
                     new KeyValuePair<string,string> ("livello", l),

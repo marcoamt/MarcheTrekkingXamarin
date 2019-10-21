@@ -22,12 +22,13 @@ namespace MrcheTrekking.Views
             {
 
                 string nomePercorso = Picker.SelectedItem.ToString();
+                string nomeClean = nomePercorso.Replace("'", "''");
                 var uri = "http://marchetrekking.altervista.org/aggiungi_recensione.php";
 
                 //body della post request
                 var content = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string,string> ("percorso", nomePercorso),
+                    new KeyValuePair<string,string> ("percorso", nomeClean),
                     new KeyValuePair<string,string> ("recensione", recensione),
                     new KeyValuePair<string,string> ("user", Utility.Settings.User),
                 });
