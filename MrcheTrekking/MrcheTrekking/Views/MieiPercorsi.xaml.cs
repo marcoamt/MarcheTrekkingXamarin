@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Linq;
 
 namespace MrcheTrekking.Views
 {
@@ -100,8 +101,10 @@ namespace MrcheTrekking.Views
 
         public MieiPercorsi()
         {
-            BindingContext = new ListMyPercorsiViewModel();
+            var binding = new ListMyPercorsiViewModel();
+            BindingContext = binding;
             InitializeComponent();
+            
         }
     }
 }

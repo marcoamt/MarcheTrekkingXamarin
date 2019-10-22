@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MrcheTrekking.ViewModels;
 
 namespace MrcheTrekking.Models
 {
@@ -10,6 +11,5 @@ namespace MrcheTrekking.Models
         public string NomePercorso { get; set; }
         public string Recensione { get; set; }
         public string UserName { get; set; }
-
     }
 }
