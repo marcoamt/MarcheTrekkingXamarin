@@ -49,46 +49,51 @@ namespace MrcheTrekking.Views
                 // the item was deselected
                 return;
             }
-            bool answer = await DisplayAlert("Conferma", "Vuoi cancellare questa recensione?", "Si", "No");
-            Debug.WriteLine("Answer: " + answer);
-            if (answer)
+            if(item.UserName == Settings.User)
             {
-                if (Settings.User == item.UserName)
+                bool answer = await DisplayAlert("Conferma", "Vuoi cancellare questa recensione?", "Si", "No");
+                Debug.WriteLine("Answer: " + answer);
+                if (answer)
                 {
-                    Debug.WriteLine("ok" + Settings.User);
-                    var uri = "http://marchetrekking.altervista.org/cancellaRecensione.php";
-
-                    //body della post request
-                    var content = new FormUrlEncodedContent(new[]
+                    if (Settings.User == item.UserName)
                     {
+                        Debug.WriteLine("ok" + Settings.User);
+                        var uri = "http://marchetrekking.altervista.org/cancellaRecensione.php";
+
+                        //body della post request
+                        var content = new FormUrlEncodedContent(new[]
+                        {
                         new KeyValuePair<string,string> ("recensione", item.Id.ToString()),
                     });
 
-                    //inoltro richiesta al server
-                    HttpClient client = new HttpClient();
-                    var response = await client.PostAsync(uri, content);
-                    var risp = await response.Content.ReadAsStringAsync();  //risposta del server
-                    string s = risp.Trim();
-                    if (s.Equals("ok"))
-                    {
-                        DisplayAlert("Alert", "Recensione cancellata", "OK");
-                        
-                        //update del contenuto di questa pagina
-                        var vUpdatedPage = new RecensionePercorso();
-                        vUpdatedPage.BindingContext = new ListRecensioneViewModel(item.NomePercorso);
-                        Navigation.InsertPageBefore(vUpdatedPage, this);
-                        _ = Navigation.PopAsync();
+                        //inoltro richiesta al server
+                        HttpClient client = new HttpClient();
+                        var response = await client.PostAsync(uri, content);
+                        var risp = await response.Content.ReadAsStringAsync();  //risposta del server
+                        string s = risp.Trim();
+                        if (s.Equals("ok"))
+                        {
+                            DisplayAlert("Alert", "Recensione cancellata", "OK");
+
+                            //update del contenuto di questa pagina
+                            var vUpdatedPage = new RecensionePercorso();
+                            vUpdatedPage.BindingContext = new ListRecensioneViewModel(item.NomePercorso);
+                            Navigation.InsertPageBefore(vUpdatedPage, this);
+                            _ = Navigation.PopAsync();
+                        }
+                        else
+                        {
+                            DisplayAlert("Errore", "Errore", "OK");
+                        }
                     }
                     else
                     {
-                        DisplayAlert("Errore", "Errore", "OK");
+                        DisplayAlert("Alert", "Non puoi cancellare questa recensione", "Ok");
                     }
                 }
-                else
-                {
-                    DisplayAlert("Alert", "Non puoi cancellare questa recensione", "Ok");
-                }
+
             }
+            
             lstView.SelectedItem = null;
         }
     }

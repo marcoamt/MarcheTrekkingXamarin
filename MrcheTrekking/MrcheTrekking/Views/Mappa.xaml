@@ -3,7 +3,7 @@
              xmlns:local="clr-namespace:MrcheTrekking.Utility;assembly=MrcheTrekking"
              x:Class="MrcheTrekking.Views.Mappa" Title="Mappa">
     <ContentPage.Content>
-        <local:CustomMap x:Name="customMap" MapType="Street" />
+        <local:CustomMap x:Name="customMap" MapType="Street"/>
 	</ContentPage.Content>
 
 </ContentPage>
