@@ -42,7 +42,7 @@ namespace MrcheTrekking.ViewModels
 
         public string Caratteristiche
         {
-            get { return string.Format("Livello: {0}\nLunghezza: {1} \nDurata: {2}", _percorso.Livello, _percorso.Lunghezza, _percorso.Durata); }
+            get { return string.Format("Livello difficoltà: {0}\nLunghezza: {1} km\nDurata: {2} ore", _percorso.Livello, _percorso.Lunghezza, _percorso.Durata); }
         }
 
         public PercorsiViewModel(PercorsiModel percorso)

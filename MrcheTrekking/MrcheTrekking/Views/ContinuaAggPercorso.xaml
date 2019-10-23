@@ -4,9 +4,9 @@
         <StackLayout Margin="10">
           <Entry x:Name="nome" Placeholder="Nome"/>
             <Entry x:Name="descrizione" Placeholder="Descrizione"/>
-            <Entry x:Name="lunghezza" Placeholder="Lunghezza"/>
-            <Entry x:Name="livello" Placeholder="Livello"/>
-            <Entry x:Name="durata" Placeholder="Durata" />
+            <Entry x:Name="lunghezza" Placeholder="Lunghezza (km)"/>
+            <Entry x:Name="livello" Placeholder="Livello Difficoltà (1-5)"/>
+            <Entry x:Name="durata" Placeholder="Durata (ore)" />
             <Button Text="Aggiungi Percosrso" Clicked="aggiungi" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"/>
       </StackLayout>
     </ContentPage.Content>
