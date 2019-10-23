@@ -53,8 +53,8 @@ namespace MrcheTrekking.Views
             {
                 StackLayout row = (Xamarin.Forms.StackLayout)agg.Children[c];
                 Entry lat = (Xamarin.Forms.Entry)row.Children[1];
-                latitudine.Add(lat.Text);
                 Entry lon = (Xamarin.Forms.Entry)row.Children[2];
+                latitudine.Add(lat.Text);
                 longitudine.Add(lon.Text);
             }
 

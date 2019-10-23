@@ -3,10 +3,10 @@
     <ContentPage.Content>
         <StackLayout Margin="10">
           <Entry x:Name="nome" Placeholder="Nome"/>
-            <Entry x:Name="descrizione" Placeholder="Descrizione"/>
-            <Entry x:Name="lunghezza" Placeholder="Lunghezza (km)"/>
-            <Entry x:Name="livello" Placeholder="Livello Difficoltà (1-5)"/>
-            <Entry x:Name="durata" Placeholder="Durata (ore)" />
+            <Entry x:Name="descrizione"  Placeholder="Descrizione"/>
+            <Entry x:Name="lunghezza" Keyboard="Numeric" Placeholder="Lunghezza (km)"/>
+            <Entry x:Name="livello" Keyboard="Numeric" Placeholder="Livello Difficoltà (1-5)"/>
+            <Entry x:Name="durata" Keyboard="Numeric" Placeholder="Durata (ore)" />
             <Button Text="Aggiungi Percosrso" Clicked="aggiungi" CornerRadius="20"  HeightRequest="38" BackgroundColor="#009900" TextColor="White"/>
       </StackLayout>
     </ContentPage.Content>
